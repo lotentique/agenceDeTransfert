@@ -1,0 +1,323 @@
+.r{
+
+  background: #f7f7f7;
+  box-shadow: 3px 0 8px rgba(0, 0, 0, 0.26);
+  position: fixed;
+  width: 100%;
+}
+
+
+[class*='col-']{
+  
+  
+  margin: 0px;
+  padding: 0px;
+}
+
+
+.titre h1{
+  text-align: center;
+  font-family: bold;
+  font-size: 4vw;
+  font-family:impact;
+  color:white;     /*;   #DFF0D8;   #04A3ED;  #424558;  #D6E9C6;  #B94A48;  #F2DEDE;  #EED3D7;*/
+  text-shadow: 1px 3px 7px  black;
+  text-transform: uppercase;
+  margin-top: 40px;
+
+}
+
+.logo{  
+  height: 170px;
+  width: 170px;
+  
+
+}
+
+.cicon img{
+  width: 23px;
+  height: 23px;
+  margin-top: -10px;
+  color: white;
+}
+
+
+.menu2{
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  /*border:1px solid blue;*/
+  }
+ 
+
+.menu2  .navbar-nav > .active > a{
+  background-color : #04A3ED;
+  color: white;
+  font-weight: bold;
+  
+}
+.menu2  .navbar-nav >  li{
+  margin: 1px;
+}
+.menu2  .navbar-nav li a{
+  font-size: 13px;
+  color: white;
+  font-family: impact;
+  text-shadow: 1px 6px 17px  black;
+  padding: 3px 31px;
+  border-radius: 5px;
+  background-color: black;
+  width: 100%;
+  text-transform: uppercase;
+}
+.menu2  .navbar-nav >  li >  a:hover{
+  background-color: #04A3ED;
+  
+}
+
+.navbar-header > a{
+  padding: 0px;
+  margin: 0px;
+  text-decoration: none;
+  color: white;
+  font-size: 25px;
+  
+}
+.navbar-header > a:hover{
+ text-decoration: none;
+ color: #04A3ED;
+}
+
+.icon-bar{
+  background-color: black;
+}
+
+
+
+.menu-bar{
+    position: fixed;
+    left: 0;
+    height: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background: #f7f7f7;
+    z-index:10;  
+    overflow:auto;
+    box-shadow: 3px 0 8px rgba(0, 0, 0, 0.26);
+    transition: all 0.1s ease-in-out;
+    width:0;
+    text-transform: uppercase;
+  }
+
+.menu-bar li a{
+  display: block;
+  height: 4em;
+  line-height: 6em;
+  text-align:left;
+  padding-left: 1.5em;
+  color: black;
+  text-decoration:none;  
+  position: relative;
+  font-family:'Ubuntu Condensed', sans-serif;
+  text-shadow: 1px 3px 4px  black;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.05);
+  
+  
+  
+ }
+
+.menu-bar li a:hover{
+  background: rgba(0, 0, 0, 0.26);;
+  color: white;
+  box-shadow: 1px 0 8px skyblue;
+  border-bottom: 4px solid #04A3ED;
+
+}
+.menu-bar li:first-child a{
+    height:5em;
+    background: black;
+    color: #fff;    
+    border-bottom: 1px solid #04A3ED;
+}
+
+.open{width:15em;height:100%;}
+.open2{margin-left:15em; }
+
+
+.profile{
+  background-color: black;
+  padding: 1.5em 4em; 
+  width: 15em;
+
+}
+
+
+
+
+
+.profile img{
+  width: 90px;
+  height: 90px;
+  border-radius: 100%;
+  border:5px solid rgb(68,84,106);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+  -webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+  
+}
+
+
+.bmenu a{
+  padding: 1.5em 1em; 
+  color: white;
+  text-decoration:none;  
+  font-family:'Ubuntu Condensed', sans-serif;
+  text-shadow: 1px 3px 5px  black;
+  cursor: pointer;
+}
+.bmenu i{
+  position: static;
+}
+
+.as{
+  
+  width: 67.3%;
+  float: right; 
+  height: 152px;
+
+}
+.contenu{
+  margin-top: 199px;
+  text-align: center;
+}
+.contenu .NL{
+  display: inline-block;
+}
+@media all and (min-width: 641px) and (max-width: 770px) {
+.icon-bar{
+  background-color: #04A3ED;;
+}
+   
+    
+  }
+@media all and (min-width: 480px) and (max-width: 640px) {
+    .container{
+        margin-top:100px;
+    }
+    .menu{
+        height:3em;
+        width:100%;
+    }
+    .menu li{
+        display:inline-block;
+        float:left;
+    }
+    .menu-bar li a{
+        width:100%;
+        text-align: center;
+    }
+    .menu-bar{
+        width:100%;
+        left:0;
+        height:0;
+    }
+    .open{
+        width:100%;
+        height:auto;
+    }
+    .open2{margin-left:0em; }
+    .menu-bar{
+        
+        font-size: 10px;
+      }
+      .menu li a{
+        font-size: 10px;
+      } 
+      
+       .profile{
+      width: 100%;
+    }
+    .as{
+      width: 100%;
+      height: 80px;
+      border-bottom:1px solid red;
+    }
+    .icon-bar{
+     background-color: white;
+     }
+     
+     .logo{ 
+       height: 110px;
+       width: 110px;
+       }
+     .contenu{
+      margin-top: 250px;
+     }
+}
+
+@media all and (max-width: 479px) {
+    .container{
+        margin-top:100px;
+    }
+    .menu{
+        height:2.8em;
+        width:100%;
+        overflow: visible;
+    }
+    .menu li{
+        display:inline-block;
+        float:left;
+    }
+    .menu-bar li a{
+        width:100%;
+        text-align: center;
+    }
+    .menu-bar{
+        width:100%;
+        left:0;
+        height:0;
+    }
+    .open{
+        width:100%;
+        height:auto;
+    }
+   .open2{margin-left:0em; }
+
+    .menu-bar{
+       
+        font-size: 10px;
+        position: fixed;
+      }
+      .menu li a{
+        font-size: 8px;
+      } 
+      
+      .profile{
+      width: 100%;
+      }
+
+      .as{
+      width: 100%;
+      height: 76px;
+      border-bottom:1px solid red;
+    }
+
+    .icon-bar{
+     background-color: white;
+     }
+     
+     .titre h1{
+      font-size: 20px;
+     }
+     .logo{ 
+       height: 90px;
+       width: 90px;
+       }
+
+
+
+     .contenu{
+      margin-top: 250px;
+     }
+}
