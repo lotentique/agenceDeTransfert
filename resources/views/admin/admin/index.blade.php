@@ -1,14 +1,11 @@
 @extends('layouts.base')
 
 @section('content')
-<div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="x_panel">
-            <div class="x_title">
-                <h2>Listes Des Utilisateurs <a href="{{ route('bcm.create') }}" class="btn btn-primary btn-xs"><i class="fa fa-plus"></i> Create New </a></h2>
-                <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-                <table id="datatable-buttons" class="table table-striped table-bordered">
+
+                <div class="listtitre">
+                <h3><span class="creU"></span>Listes Des Admin <a href="{{ route('admin.create') }}" class="btn btn-primary btn-xs"><i class="fa fa-plus"></i> Ajouter </a></h3></div>
+               <div class="scroll">
+                <table id="datatable-buttons" class="table table-striped table-bordered tbD">
                     <thead>
                         <tr>
                             <th>name</th>
@@ -31,17 +28,13 @@
                             <td>{{$row->login}}</td>
                             <td>{{$row->email}}</td>
                             <td>
-                                <a href="{{ route('bcm.edit', ['id' => $row->id]) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil" title="Edit"></i> </a>
-                                <a href="{{ route('bcm.delete', ['id' => $row->id]) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" title="Delete"></i> </a>
+                                <a href="{{ route('admin.edit', ['id' => $row->id]) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil" title="Edit"></i> </a>
+                                <a href="{{ route('admin.delete', ['id' => $row->id]) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" title="Delete"></i> </a>
                             </td>
                         </tr>
                         @endforeach
                         @endif
                     </tbody>
                 </table>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
+              </div>
 @endsection

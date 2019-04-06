@@ -193,14 +193,116 @@
 }
 .contenu .NL{
   display: inline-block;
+  width: 70%;
+  
+  padding: 10px;
 }
-@media all and (min-width: 641px) and (max-width: 770px) {
-.icon-bar{
-  background-color: #04A3ED;;
+ 
+.contenu .NL .form-group input{
+  border-radius: 96px; 
+  width: 230px;
+  margin-left: 25%;
+  margin-top: 20px;
+  background-color: #f7f7f7;
 }
-   
-    
-  }
+.gauche{
+  border-bottom: 1px solid skyblue;
+  border-right: 1px dotted black;
+  float: left;
+  width: 50%;
+   box-shadow: 3px 0 8px rgba(0, 0, 0, 0.26);
+    border-radius: 10px;
+}
+.droite{
+  float: right;
+  width: 50%;
+  border-left: 1px dotted black;
+   box-shadow: 3px 0 8px rgba(0, 0, 0, 0.26);
+    border-bottom: 1px solid pink;
+    border-radius: 10px;
+}
+.gauche .form-group input{
+border:1px solid skyblue;
+
+}
+.droite .form-group input{
+border:1px solid pink;
+
+}
+.creU:before{
+  font-family: "Glyphicons Halflings";
+  content: "\e008";
+ }
+
+.listtitre{
+  border-radius: 40px;
+  border:1px solid transparent;
+  background-color:#f7f7f7;
+  box-shadow: 3px 0 8px rgba(0, 0, 0, 0.26);
+  width: 50%;
+  margin-left: 25%;
+  font-family: Times new roman;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.scroll{
+  width: 80%;
+  display: inline-block;
+}
+.tbD{
+  font-family: Times new roman;
+  border-top:5px solid black;
+  
+  font-weight: bold;
+}
+.tbD thead th{
+  background-color: skyblue;
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  
+}
+
+.tbD td{
+  box-shadow: 5px 0 11px black;
+  background: #f7f7f7;
+ }
+ .tbD tbody tr{
+  border-bottom:5px solid white;
+  
+  
+ }
+
+
+ 
+
+@media all and (min-width: 641px) and (max-width: 943px) {
+.gauche{
+        float: none;
+        width: 100%;
+     }
+     .droite{
+      float: none;
+      border:none; 
+      width: 100%;
+     }
+}
+
+@media all and (max-width: 605px) {
+
+div.scroll {
+      width:100%;
+      overflow-x:auto;
+       overflow-y:auto;
+       height: auto;
+      max-height:620px;
+       
+
+}
+
+
+}
+
 @media all and (min-width: 480px) and (max-width: 640px) {
     .container{
         margin-top:100px;
@@ -254,6 +356,22 @@
      .contenu{
       margin-top: 250px;
      }
+
+     .contenu .NL{
+      width: 100%;
+     }
+     .gauche{
+        float: none;
+        width: 100%;
+     }
+     .droite{
+      float: none;
+      border:none; 
+      width: 100%;
+     }
+
+   
+
 }
 
 @media all and (max-width: 479px) {
@@ -315,9 +433,23 @@
        width: 90px;
        }
 
-
-
      .contenu{
       margin-top: 250px;
+     }
+
+     .contenu .NL{
+      width: 100%;
+     }
+     .gauche{
+        float: none;
+        width: 100%;
+     }
+     .droite{
+      float: none;
+      border:none; 
+      width: 100%;
+     }
+.contenu .NL .form-group input{
+  margin-left: 0px;
      }
 }

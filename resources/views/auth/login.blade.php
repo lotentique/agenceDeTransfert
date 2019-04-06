@@ -12,26 +12,6 @@
 </head>
 <body>
   
-    <!-- affichage des erreur de login  -->
-      @if($message=Session::get('error'))
-        <div class="alert alert-danger alert-block">
-          <button type="button" class="close" data-dismiss='alert'>X</button>
-            <strong>{{ $message }}</strong>
-
-        </div>
-
-      @endif
-
-     @if(count($errors) >0)
-        <div class="alert alert-danger">
-          <ul>
-            @foreach($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-          </ul>
-        </div>
-     @endif
-     <!-- -->
 
 <div class="container-fluid login" style="text-align: center;">
 

@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 
+use App\Http\Controllers\Controller;
 use App\User;
 use Validator;
 
@@ -22,7 +23,7 @@ class BcmController extends Controller
             'title' => 'Liste des ustilisateurs ',
             'users' => $users,
         ];
-        return view('bcm.index')->with($params);
+        return view('admin.bcm.index')->with($params);
     }
 
     /**
@@ -32,7 +33,7 @@ class BcmController extends Controller
      */
     public function create()
     {
-        return view('bcm.create');
+        return view('admin.bcm.create');
     }
 
     /**
@@ -47,7 +48,7 @@ class BcmController extends Controller
             'name'=>'required|alpha_dash',
             'prenom'=>'required|alpha_dash',
             'tel'=>'required|alpha_num|min:8|max:8',
-            'nni'=>'required|alpha_num|unique:users,nni',
+            'nni'=>'required|alpha_num|min:10|max:10|unique:users,nni',
             'login'=>'required|unique:users,login',
             'email'=>'required|email|unique:users,email',
             'password'=>'required|min:6|confirmed',
@@ -66,7 +67,7 @@ class BcmController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
         ]);
-        return redirect('bcm');
+        return redirect('admin/bcm');
     }
 
     /**
@@ -88,7 +89,7 @@ class BcmController extends Controller
      */
     public function edit(User $user)
     {
-        return view('bcm.edit', compact('user'));
+        return view('admin.bcm.edit', compact('user'));
     }
 
     /**
@@ -105,7 +106,7 @@ class BcmController extends Controller
             'name'=>'required|alpha_dash',
             'prenom'=>'required|alpha_dash',
             'tel'=>'required|alpha_num|min:8|max:8',
-            'nni'=>'required|alpha_num|unique:users,nni,'.$id.'',
+            'nni'=>'required|alpha_num|min:10|max:10|unique:users,nni,'.$id.'',
             'login'=>'required|unique:users,login,'.$id.'',
             //'type_user'=>'required',
             'email'=>'required|email|unique:users,email,'.$id.'',
@@ -117,7 +118,7 @@ class BcmController extends Controller
         }
         $user->update($request->all());
         $user->update();
-        return redirect('bcm');
+        return redirect('admin/bcm');
     }
 
     /**
@@ -129,7 +130,7 @@ class BcmController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect('bcm');
+        return redirect('admin/bcm');
     }
     /**
      * pour l affichage de la view pour la suppretion
@@ -137,6 +138,6 @@ class BcmController extends Controller
      */
     public function destroyForm(User $user)
     {
-        return view('bcm.destroy', compact('user'));
+        return view('admin.bcm.destroy', compact('user'));
     }
 }

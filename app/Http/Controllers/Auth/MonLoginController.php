@@ -30,7 +30,7 @@ class MonLoginController extends Controller
         if(\Auth::attempt(['login' => $request->login, 'password' => $request->password,
             'type_user'=>"admin",]))
         {
-            return view('admin');
+            return redirect('admin');
         }else{
             return redirect('/');
         }

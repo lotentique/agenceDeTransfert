@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 
+use App\Http\Controllers\Controller;
 use App\User;
 use Validator;
-use Illuminate\Support\Facades\Auth;
 
-class adminController extends Controller
+class AgentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,13 +17,13 @@ class adminController extends Controller
      */
     public function index()
     {
-        $id=auth()->user()->id;
-        $users=User::where([['type_user', '=', 'admin'],['id','!=',"$id"]])->get();
+        //$users=User::all();
+        $users=User::where('type_user', '=', 'agent')->get();
         $params = [
-            'title' => 'Liste des ustilisateurs ',
+            'title' => 'Liste des agents',
             'users' => $users,
         ];
-        return view('admin.index')->with($params);
+        return view('admin.agent.index')->with($params);
     }
 
     /**
@@ -33,7 +33,7 @@ class adminController extends Controller
      */
     public function create()
     {
-        return view('admin.create');
+        return view('admin.agent.create');
     }
 
     /**
@@ -57,7 +57,7 @@ class adminController extends Controller
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
-         User::create([
+        User::create([
             'name' => $request->name,
             'prenom' => $request->prenom,
             'tel' => $request->tel,
@@ -67,7 +67,7 @@ class adminController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
         ]);
-        return redirect('admin');
+        return redirect('admin/agents');
     }
 
     /**
@@ -89,7 +89,7 @@ class adminController extends Controller
      */
     public function edit(User $user)
     {
-        return view('admin.edit', compact('user'));
+        return view('admin.agent.edit', compact('user'));
     }
 
     /**
@@ -106,7 +106,7 @@ class adminController extends Controller
             'name'=>'required|alpha_dash',
             'prenom'=>'required|alpha_dash',
             'tel'=>'required|alpha_num|min:8|max:8',
-            'nni'=>'required|alpha_num|unique:users,nni,'.$id.'',
+            'nni'=>'required|alpha_num|min:10|max:10|unique:users,nni,'.$id.'',
             'login'=>'required|unique:users,login,'.$id.'',
             //'type_user'=>'required',
             'email'=>'required|email|unique:users,email,'.$id.'',
@@ -118,7 +118,7 @@ class adminController extends Controller
         }
         $user->update($request->all());
         $user->update();
-        return redirect('admin');
+        return redirect('admin/agents');
     }
 
     /**
@@ -130,7 +130,7 @@ class adminController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect('admin');
+        return redirect('admin/agents');
     }
     /**
      * pour l affichage de la view pour la suppretion
@@ -138,6 +138,6 @@ class adminController extends Controller
      */
     public function destroyForm(User $user)
     {
-        return view('admin.destroy', compact('user'));
+        return view('admin.agent.destroy', compact('user'));
     }
 }
