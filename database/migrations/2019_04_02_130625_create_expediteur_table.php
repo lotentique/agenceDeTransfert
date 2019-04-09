@@ -17,8 +17,8 @@ class CreateExpediteurTable extends Migration
             $table->bigIncrements('id');
             $table->string('nom');
             $table->string('prenom');
-            $table->integer('tel');
-            $table->integer('nni')->unique();
+            $table->bigInteger('tel');
+            $table->bigInteger('nni')->unique();
             $table->string('email')->default('');
             $table->timestamps();
         });

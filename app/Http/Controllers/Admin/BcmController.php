@@ -67,7 +67,7 @@ class BcmController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
         ]);
-        return redirect('admin/bcm');
+        return redirect('bcm');
     }
 
     /**
@@ -118,7 +118,7 @@ class BcmController extends Controller
         }
         $user->update($request->all());
         $user->update();
-        return redirect('admin/bcm');
+        return redirect('bcm');
     }
 
     /**
@@ -130,7 +130,7 @@ class BcmController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect('admin/bcm');
+        return redirect('bcm');
     }
     /**
      * pour l affichage de la view pour la suppretion

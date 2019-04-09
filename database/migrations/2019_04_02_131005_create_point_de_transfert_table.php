@@ -16,7 +16,7 @@ class CreatePointDeTransfertTable extends Migration
         Schema::create('point_de_transferts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('cartier');
-            $table->integer('id_ville');
+            $table->bigInteger('id_ville');
             $table->foreign('id_ville')->references('id')->on('villes');
             $table->timestamps();
         });

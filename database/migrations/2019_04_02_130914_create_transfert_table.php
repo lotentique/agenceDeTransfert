@@ -16,17 +16,18 @@ class CreateTransfertTable extends Migration
         Schema::create('transferts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->float('montant');
+            $table->float('tarif');
             $table->string('code_transfer');
             $table->boolean('status')->default(false);
-            $table->datetime('date_recuperation');
+            $table->datetime('date_recuperation')->nullable();
             $table->integer('effectue_par');
-            $table->integer('modifier_par');
-            $table->integer('nni_beneficiaire');
+            $table->integer('modifier_par')->nullable();
+            $table->integer('nni_beneficiaire')->nullable();
 
-            $table->integer('id_expediteur');
-            $table->integer('id_beneficiaire');
-            $table->integer('id_ville');
-            $table->integer('id_pnt');
+            $table->bigInteger('id_expediteur');
+            $table->bigInteger('id_beneficiaire');
+            $table->bigInteger('id_ville');
+            $table->bigInteger('id_pnt');
 
             $table->foreign('id_expediteur')->references('id')->on('expediteurs');
             $table->foreign('id_beneficiaire')->references('id')->on('beneficiaires');

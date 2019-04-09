@@ -67,7 +67,7 @@ class AgentController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
         ]);
-        return redirect('admin/agents');
+        return redirect('agents');
     }
 
     /**
@@ -118,7 +118,7 @@ class AgentController extends Controller
         }
         $user->update($request->all());
         $user->update();
-        return redirect('admin/agents');
+        return redirect('agents');
     }
 
     /**
@@ -130,7 +130,7 @@ class AgentController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect('admin/agents');
+        return redirect('agents');
     }
     /**
      * pour l affichage de la view pour la suppretion

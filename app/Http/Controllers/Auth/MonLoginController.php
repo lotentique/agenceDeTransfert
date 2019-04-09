@@ -8,36 +8,46 @@ use App\Http\Requests\Auth\MonLoginRequest;
 
 class MonLoginController extends Controller
 {
+    public function __construct(Request $request)
+    {
+        $this->request = $request;
+        $this->middleware('guest', ['except' => 'destroy']);
+    }
 
-    public function index(){
+    public function index()
+    {
         if (auth()->check()) {
             return back();
         }
         return view('Auth.login');
     }
 
-    public function store(MonLoginRequest $request){
-        if(\Auth::attempt(['login' => $request->login, 'password' => $request->password,
-            'type_user'=>"agent",]))
-        {
-            return view('home');
-        }
-        if(\Auth::attempt(['login' => $request->login, 'password' => $request->password,
-            'type_user'=>"bcm",]))
-        {
-            return view('home');
-        }
-        if(\Auth::attempt(['login' => $request->login, 'password' => $request->password,
-            'type_user'=>"admin",]))
-        {
-            return redirect('admin');
-        }else{
+    public function store(MonLoginRequest $request)
+    {
+        if (\Auth::attempt([
+            'login' => $request->login, 'password' => $request->password,
+            'type_user' => "agent",
+        ])) {
+                return view('home');
+            }
+        if (\Auth::attempt([
+            'login' => $request->login, 'password' => $request->password,
+            'type_user' => "bcm",
+        ])) {
+                return view('home');
+            }
+        if (\Auth::attempt([
+            'login' => $request->login, 'password' => $request->password,
+            'type_user' => "admin",
+        ])) {
+                return redirect('admin');
+            } else {
             return redirect('/');
         }
-
     }
 
-    public function destroy(){
+    public function destroy()
+    {
         auth()->logout();
         return redirect('/');
     }

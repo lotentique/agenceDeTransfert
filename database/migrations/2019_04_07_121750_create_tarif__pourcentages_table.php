@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBeneficiaireTable extends Migration
+class CreateTarifPourcentagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateBeneficiaireTable extends Migration
      */
     public function up()
     {
-        Schema::create('beneficiaires', function (Blueprint $table) {
+        Schema::create('tarif_Pourcentages', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nom');
-            $table->string('prenom');
-            $table->bigInteger('tel');
-            $table->string('email')->default('');
+            $table->decimal('pourcentage', 4, 2);
+            $table->dateTime('date_debut');
+            $table->dateTime('date_fin')->nullable();
+            $table->bigInteger('cree_par');
+            $table->bigInteger('modifier_par')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateBeneficiaireTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('beneficiaire');
+        Schema::dropIfExists('tarifPourcentages');
     }
 }

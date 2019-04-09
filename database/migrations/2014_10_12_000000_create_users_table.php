@@ -17,14 +17,14 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('prenom');
-            $table->integer('tel');
-            $table->integer('nni');
+            $table->bigInteger('tel');
+            $table->bigInteger('nni');
             $table->string('login')->unique();
             $table->enum('type_user', ['admin','bcm','agent']);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->integer('id_pnt')->nullable();
+            $table->bigInteger('id_pnt')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
