@@ -18,9 +18,11 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            if(Auth::user()->type_user=="admin"){
+            if (Auth::user()->type_user == "admin") {
                 return redirect('/admin');
-            }   
+            } elseif (Auth::user()->type_user == "agent") {
+                return redirect('/home');
+            }
         }
 
         return $next($request);

@@ -198,13 +198,14 @@
   padding: 10px;
 }
  
-.contenu .NL .form-group input{
+.contenu .NL .form-group input,.contenu .NL .form-group select{
   border-radius: 96px; 
   width: 230px;
   margin-left: 25%;
   margin-top: 20px;
   background-color: #f7f7f7;
 }
+
 .gauche{
   border-bottom: 1px solid skyblue;
   border-right: 1px dotted black;
@@ -225,7 +226,7 @@
 border:1px solid skyblue;
 
 }
-.droite .form-group input{
+.droite .form-group input,.droite .form-group select{
 border:1px solid pink;
 
 }

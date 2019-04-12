@@ -42,7 +42,7 @@
         <li><a href="{{ route('agents.index')}}"><span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon-user"></span> Agents</a>
         </li>
         <li><a href="{{ route('bcm.index')}}"><span class="glyphicon glyphicon-stats"></span> BCM</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-equalizer"></span> Points de tranfert</a></li>
+        <li><a href="{{ route('PTransfert.index')}}"><span class="glyphicon glyphicon-equalizer"></span> Points de tranfert</a></li>
         <li><a href="{{ route('admin.edit', ['id' => auth()->user()->id ]) }}"><span class="glyphicon glyphicon-pencil"></span> Mon profile</a></li>
         <li><a href="{{ route('ChangerNL')}}"><span class="glyphicon glyphicon-cog"></span> configuration</a></li>
         <li><a href="{{ route('logout') }}"><span class="glyphicon glyphicon-log-out"></span> Deconnexion</a></li>

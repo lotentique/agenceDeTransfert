@@ -19,7 +19,7 @@ class CreateExpediteurTable extends Migration
             $table->string('prenom');
             $table->bigInteger('tel');
             $table->bigInteger('nni')->unique();
-            $table->string('email')->default('');
+            $table->string('email')->nullable();
             $table->timestamps();
         });
     }

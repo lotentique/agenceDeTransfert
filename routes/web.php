@@ -84,14 +84,38 @@ Route::group(['namespace' => 'Admin'], function () {
     Route::match(['put', 'path'], 'admin/pourcentage/{tarif_pourcentage}', 'TarifPourcentageController@update')->name('tarifPourcentage.update')->middleware('admin');
     Route::get('admin/pourcentage/{tarif_pourcentage}/edit', 'TarifPourcentageController@edit')->name('tarifPourcentage.edit')->middleware('admin');
 });
-
+//Les routes pour les tarif en interval
 Route::group(['namespace' => 'Admin'], function () {
     Route::match(['get', 'head'], 'admin/tarification', 'ParametreTarifController@index')->name('tarification')->middleware('admin');
     Route::post('admin/tarification', 'ParametreTarifController@store')->name('tarification.store')->middleware('admin');
     Route::match(['put', 'path'], 'admin/tarification/{parametre_applique}', 'ParametreTarifController@update')->name('tarification.update')->middleware('admin');
-    //Route::get('admin/pourcentage/{tarif_pourcentage}/edit', 'TarifPourcentageController@edit')->name('tarifPourcentage.edit')->middleware('admin');
 });
 
-//Auth::routes();
 
+//les crud pour le point de transfert
+Route::group(['namespace' => 'Admin'], function () {
+    Route::match(['get', 'head'], 'admin/PTransfert', 'PTransfertController@index')->name('PTransfert.index')->middleware('admin');
+    Route::post('admin/PTransfert', 'PTransfertController@store')->name('PTransfert.store')->middleware('admin');
+    Route::match(['get', 'head'], 'admin/PTransfert/create', 'PTransfertController@create')->name('PTransfert.create');
+    Route::delete('admin/PTransfert/{Point_de_transferts}', 'PTransfertController@destroy')->name('PTransfert.destroy');
+    Route::match(['put', 'path'], 'admin/PTransfert/{Point_de_transferts}', 'PTransfertController@update')->name('PTransfert.update')->middleware('admin');
+    Route::get('admin/PTransfert/{Point_de_transferts}/edit', 'PTransfertController@edit')->name('PTransfert.edit')->middleware('admin');
+    Route::get('admin/PTransfert/{Point_de_transferts}/destroy', 'PTransfertController@destroyForm')->name('PTransfert.delete')->middleware('admin');
+});
+//fin crud point de transfert
+
+// les routes effectue un transfert 
+Route::group(['namespace' => 'Agent'], function () {
+    Route::match(['get', 'head'], 'agent/trensfert', 'TransfertController@index')->name('trensfert')->middleware('agent');
+    Route::post('agent/trensfert/confirme', 'TransfertController@confirm')->name('trensfert.confirm')->middleware('agent');
+    Route::post('agent/trensfert', 'TransfertController@store')->name('trensfert.store')->middleware('agent');
+    //Route::match(['put', 'path'], 'admin/tarification/{parametre_applique}', 'ParametreTarifController@update')->name('tarification.update')->middleware('admin');
+
+    Route::match(['get', 'head'], 'agent/code', 'TransfertController@codage')->name('code')->middleware('agent');
+});
+
+Route::get('agent', function () {
+    return view('agent.Agent');
+})->middleware('agent');
 Route::get('/home', 'HomeController@index')->name('home');
+//Auth::routes();

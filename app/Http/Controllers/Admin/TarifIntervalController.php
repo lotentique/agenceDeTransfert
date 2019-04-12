@@ -16,14 +16,15 @@ class TarifIntervalController extends Controller
      */
     private function verifInterval($val)
     {
-        $ver = false;
+        //$ver = false;
         $tarifs = Tarif_interval::where('date_fin', '=', null)->get();
         foreach ($tarifs as  $tarif) {
             if ($val < $tarif->max && $val > $tarif->min) {
-                $ver = true;
+                //$ver = true;
+                return true;
             }
         }
-        return $ver;
+        return false;
     }
 
     public function index()

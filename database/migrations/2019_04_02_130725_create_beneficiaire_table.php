@@ -18,7 +18,7 @@ class CreateBeneficiaireTable extends Migration
             $table->string('nom');
             $table->string('prenom');
             $table->bigInteger('tel');
-            $table->string('email')->default('');
+            $table->string('email')->nullable();
             $table->timestamps();
         });
     }

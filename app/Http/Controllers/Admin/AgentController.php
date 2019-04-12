@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Models\Ville;
+use App\Models\Point_de_transfert;
 use Validator;
 
 class AgentController extends Controller
@@ -18,7 +20,7 @@ class AgentController extends Controller
     public function index()
     {
         //$users=User::all();
-        $users=User::where('type_user', '=', 'agent')->get();
+        $users = User::where('type_user', '=', 'agent')->get();
         $params = [
             'title' => 'Liste des agents',
             'users' => $users,
@@ -33,7 +35,14 @@ class AgentController extends Controller
      */
     public function create()
     {
-        return view('admin.agent.create');
+
+        $villes = Ville::get();
+        $PTransfert = Point_de_transfert::get();
+        $params = [
+            'PTransfert' => $PTransfert,
+            'villes' => $villes,
+        ];
+        return view('admin.agent.create')->with($params);
     }
 
     /**
@@ -45,13 +54,14 @@ class AgentController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name'=>'required|alpha_dash',
-            'prenom'=>'required|alpha_dash',
-            'tel'=>'required|alpha_num|min:8|max:8',
-            'nni'=>'required|alpha_num|unique:users,nni',
-            'login'=>'required|unique:users,login',
-            'email'=>'required|email|unique:users,email',
-            'password'=>'required|min:6|confirmed',
+            'name' => 'required|alpha_dash',
+            'prenom' => 'required|alpha_dash',
+            'tel' => 'required|alpha_num|min:8|max:8',
+            'nni' => 'required|alpha_num|unique:users,nni',
+            'login' => 'required|unique:users,login',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:6|confirmed',
+            'id_pnt' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -66,8 +76,9 @@ class AgentController extends Controller
             'type_user' => $request->type_user,
             'email' => $request->email,
             'password' => bcrypt($request->password),
+            'id_pnt' => $request->id_pnt,
         ]);
-        return redirect('agents');
+        return redirect('admin/agents');
     }
 
     /**
@@ -89,7 +100,14 @@ class AgentController extends Controller
      */
     public function edit(User $user)
     {
-        return view('admin.agent.edit', compact('user'));
+        $villes = Ville::get();
+        $PTransfert = Point_de_transfert::get();
+        $params = [
+            'PTransfert' => $PTransfert,
+            'villes' => $villes,
+        ];
+
+        return view('admin.agent.edit', compact('user'))->with($params);
     }
 
     /**
@@ -101,16 +119,17 @@ class AgentController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $id =$user->id;
+        $id = $user->id;
         $validator = Validator::make($request->all(), [
-            'name'=>'required|alpha_dash',
-            'prenom'=>'required|alpha_dash',
-            'tel'=>'required|alpha_num|min:8|max:8',
-            'nni'=>'required|alpha_num|min:10|max:10|unique:users,nni,'.$id.'',
-            'login'=>'required|unique:users,login,'.$id.'',
+            'name' => 'required|alpha_dash',
+            'prenom' => 'required|alpha_dash',
+            'tel' => 'required|alpha_num|min:8|max:8',
+            'nni' => 'required|alpha_num|min:10|max:10|unique:users,nni,' . $id . '',
+            'login' => 'required|unique:users,login,' . $id . '',
             //'type_user'=>'required',
-            'email'=>'required|email|unique:users,email,'.$id.'',
+            'email' => 'required|email|unique:users,email,' . $id . '',
             //'password'=>'required|min:6|confirmed',
+            'id_pnt' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -118,7 +137,7 @@ class AgentController extends Controller
         }
         $user->update($request->all());
         $user->update();
-        return redirect('agents');
+        return redirect('admin/agents');
     }
 
     /**
@@ -130,7 +149,7 @@ class AgentController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect('agents');
+        return redirect('admin/agents');
     }
     /**
      * pour l affichage de la view pour la suppretion

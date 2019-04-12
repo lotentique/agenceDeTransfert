@@ -47,6 +47,7 @@ class ChangerNLController extends Controller
 		$image->move(public_path("img"), $new_name);
 
 		$path_to_file = '../resources/views/layouts/base.blade.php';
+		$path_to_file2 = '../resources/views/layouts/baseAgent.blade.php';
 		$file_contents = file_get_contents($path_to_file);
 		$file_contents = str_replace(array("logo.png", "logo.gif", "logo.jpg", "logo.jpeg"), "logo." . $image->getClientOriginalExtension(), $file_contents);
 		file_put_contents($path_to_file, $file_contents);

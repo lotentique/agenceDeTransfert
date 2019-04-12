@@ -28,20 +28,20 @@ class MonLoginController extends Controller
             'login' => $request->login, 'password' => $request->password,
             'type_user' => "agent",
         ])) {
-                return view('home');
-            }
+            return redirect('agent');
+        }
         if (\Auth::attempt([
             'login' => $request->login, 'password' => $request->password,
             'type_user' => "bcm",
         ])) {
-                return view('home');
-            }
+            return view('home');
+        }
         if (\Auth::attempt([
             'login' => $request->login, 'password' => $request->password,
             'type_user' => "admin",
         ])) {
-                return redirect('admin');
-            } else {
+            return redirect('admin');
+        } else {
             return redirect('/');
         }
     }

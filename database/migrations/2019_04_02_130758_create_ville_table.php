@@ -14,7 +14,7 @@ class CreateVilleTable extends Migration
     public function up()
     {
         Schema::create('villes', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id_ville');
             $table->string('nom');
             $table->timestamps();
         });

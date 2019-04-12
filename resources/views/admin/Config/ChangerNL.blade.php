@@ -36,5 +36,5 @@
     @endif
   </div>
 </div>
-<div><a href="{{ route('tarification') }}" class="button-btn-cf">la tarification</a></div>
+<div><a href="{{ route('tarification') }}" class="btn btn-primary">la tarification</a></div>
 @endsection

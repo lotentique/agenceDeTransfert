@@ -52,8 +52,7 @@
                             @endif
                         
                 </div>
-            </div>
-            <div class="droite">
+
                 <div class="form-group row">
 
                             <input id="login" type="text" class="form-control{{ $errors->has('login') ? ' is-invalid' : '' }}" name="login" value="{{ old('login') }}" required autofocus placeholder="{{ __('login') }}">
@@ -66,6 +65,9 @@
                         
                 </div>
 
+            </div><!-- Fin gauche  -->
+            <div class="droite">
+                
 
                 <input id="type_user" type="hidden"  name="type_user" value="agent">
                 <div class="form-group row">
@@ -95,7 +97,26 @@
 
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required placeholder="{{ __('Confirm Password') }}">
                             </div>
+
+            <div class="form-group row">
+                <select name="id_pnt" class="form-control">
+                    @if (count($villes))
+                    @foreach($villes as $row)
+                    <optgroup label="{{$row->nom}}">
+                        @if (count($PTransfert))
+                        @foreach($PTransfert as $row2)
+                            @if ($row->id_ville==$row2->id_ville)
+                            <option value="{{$row2->id}}">{{$row2->nom}}</option>
+                            @endif
+                        @endforeach
+                        @endif
+                    </optgroup>            
+                    @endforeach
+                    @endif
+                </select>
             </div>
+
+            </div><!-- Fin droite  -->
                         </div>
 
 
@@ -111,4 +132,5 @@
         </div>
     </div>
  </div>
+ <div id="p"></div>
 @endsection

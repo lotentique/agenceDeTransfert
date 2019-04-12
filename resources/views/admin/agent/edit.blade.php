@@ -88,6 +88,26 @@
                             @endif
                             
                         </div>
+                        <div class="form-group row">
+                        <select name="id_pnt" class="form-control">
+                            @if (count($villes))
+                            @foreach($villes as $row)
+                            <optgroup label="{{$row->nom}}">
+                                @if (count($PTransfert))
+                                @foreach($PTransfert as $row2)
+                                    @if ($row->id_ville==$row2->id_ville)
+                                       @if($row2->id==$user->id_pnt)
+                                       <option selected value="{{$row2->id}}">{{$row2->nom}}</option>
+                                       @endif
+                                      <option value="{{$row2->id}}">{{$row2->nom}}</option>
+                                    @endif
+                                @endforeach
+                                @endif
+                            </optgroup>            
+                            @endforeach
+                            @endif
+                        </select>
+                        </div>
                        </div>
                         <div class="form-group" >
                     
