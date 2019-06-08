@@ -1,9 +1,9 @@
 @extends('layouts.base')
 @section('content')
 <div class="NL">
-    <div class="panel panel-default" style="background-color:none;border:none;">
-        <div class="panel-heading" style="border-bottom:4px solid black;border-radius: 10px;">
-            <h4 style="font-family: impact"><span class="creU"></span> ajouter un nouveau pourcentage</h4>
+    <div class="panel" style="background-color:rgba(0, 0, 0, 0.26);border:none;">
+        <div class="panel-heading" style="border-bottom:4px solid Slateblue; background-image: -webkit-linear-gradient(50deg, black 0%, gray 100%);">
+            <h4 style="font-family:  times new roman;text-transform: uppercase;color: white;"></span> Ajouter un nouveau pourcentage</h4>
         </div>
         <div class="panel-body">
             <form class="form-horizontal" method="POST" action="{{ route('tarifPourcentage.store') }}">

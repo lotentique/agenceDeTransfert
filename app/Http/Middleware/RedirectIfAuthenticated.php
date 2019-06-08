@@ -22,6 +22,8 @@ class RedirectIfAuthenticated
                 return redirect('/admin');
             } elseif (Auth::user()->type_user == "agent") {
                 return redirect('/home');
+            }else{
+                return redirect('/bcm');
             }
         }
 

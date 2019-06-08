@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\MonLoginRequest;
-
+use Validator;
+use App\User;
 class MonLoginController extends Controller
 {
     public function __construct(Request $request)
@@ -24,6 +25,15 @@ class MonLoginController extends Controller
 
     public function store(MonLoginRequest $request)
     {
+        $validator = Validator::make($request->all(), [          
+            'login' => 'required|exists:users,login',
+            'password' => 'required|min:6',
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
         if (\Auth::attempt([
             'login' => $request->login, 'password' => $request->password,
             'type_user' => "agent",
@@ -34,7 +44,7 @@ class MonLoginController extends Controller
             'login' => $request->login, 'password' => $request->password,
             'type_user' => "bcm",
         ])) {
-            return view('home');
+            return redirect('bcm');
         }
         if (\Auth::attempt([
             'login' => $request->login, 'password' => $request->password,
@@ -42,7 +52,7 @@ class MonLoginController extends Controller
         ])) {
             return redirect('admin');
         } else {
-            return redirect('/');
+            return back();
         }
     }
 

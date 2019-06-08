@@ -44,7 +44,7 @@ class ParametreTarifController extends Controller
 
     public function update(Request $request, Parametre_applique $parametre_applique)
     {
-        if ($parametre_applique->regle == $request->mode) {
+        if ($parametre_applique->regle == $request->mode || empty($request->mode)) {
             $errors = ["ce parametre est deja applique"];
             return back()->withErrors($errors);
         } else {

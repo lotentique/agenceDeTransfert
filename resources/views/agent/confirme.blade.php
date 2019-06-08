@@ -1,11 +1,8 @@
 @extends('layouts.baseAgent')
 
 @section('content')
-<div class="NL">
+<div class="col-lg-12">
     <div class="panel panel-default" style="background-color:none;border:none;">
-        <div class="panel-heading" style="border-bottom:4px solid black;border-radius: 10px;">
-            <h4 style="font-family: impact"><span class="creU"></span> Transfert</h4>
-        </div>
         <div class="panel-body">
             <form class="form-horizontal" method="POST" action="{{ route('trensfert.store') }}">
                 {{ csrf_field() }}
@@ -25,71 +22,55 @@
                 <table id="datatable-buttons" class="table table-striped table-bordered tbD">
                     <thead>
                         <tr>
-                            <th colspan="2">les donnee du transfert <span style="text-align:right;color:blue; margin-left:50%;"> Tarif: {{ $tarif }} UM</span> </th>
+                            <th colspan="4"> <span style="text-align:right;color:blue; margin-left:80%;"> Tarif: {{ $tarif }} UM</span> </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <th colspan="2" style="text-align: center; ">Expediteur</th>
+                            <th colspan="2" style="text-align: center; ">Beneficiaire</th>
                         </tr>
                         <tr>
                             <th>Nom</th>
                             <td>{{ $expe['nom'] }}</td>
-                        </tr>
-                        <tr>
-                            <th>Prenom</th>
-                            <td>{{ $expe['prenom'] }}</td>
-                        </tr>
-                        <tr>
-                            <th>Tel</th>
-                            <td>{{ $expe['tel'] }}</td>
-                        </tr>
-                        <tr>
-                            <th>Email</th>
-                            <td>{{ $expe['email'] }}</td>
-                        </tr>
-                        <tr>
-                            <th>NNi</th>
-                            <td>{{ $expe['nni'] }}</td>
-                        </tr>
-                        <tr>
-                            <th colspan="2" style="text-align: center; ">Beneficiaire</th>
-                        </tr>
-                        <tr>
                             <th>Nom</th>
                             <td>{{ $benef['nom'] }}</td>
                         </tr>
                         <tr>
                             <th>Prenom</th>
+                            <td>{{ $expe['prenom'] }}</td>
+                            <th>Prenom</th>
                             <td>{{ $benef['prenom'] }}</td>
                         </tr>
                         <tr>
+                            <th>Tel</th>
+                            <td>{{ $expe['tel'] }}</td>
                             <th>Tel</th>
                             <td>{{ $benef['tel'] }}</td>
                         </tr>
                         <tr>
                             <th>Email</th>
+                            <td>{{ $expe['email'] }}</td>
+                            <th>Email</th>
                             <td>{{ $benef['email'] }}</td>
                         </tr>
                         <tr>
+                            <th>NNi</th>
+                            <td>{{ $expe['nni'] }}</td>
                             <th>Ville</th>
                             <td>{{ $ville[0]->nom }}</td>
                         </tr>
                         <tr>
-                            <td></td>
-                            <th>montant</th>
-                        </tr>
-                        <tr>
-                            <th></th>
-                            <td>{{ $montant }} UM</td>
+                            <th colspan="3" style="text-align: center; ">montant</th>
+                            <th>{{ $montant }} UM</th>
                         </tr>
                     </tbody>
-                </table>
-                <div class="form-group">
+                </table><br>
+                <div class="form-group" style="text-align:center">
                     <button type="submit" class="btn btn-primary" style="border-radius: 25px;box-shadow: 1px 0 8px skyblue;">
-                        confirmer
+                        Confirmer
                     </button>
-                    <a href="{{ route('home') }}" class="btn btn-danger" style="border-radius: 25px;box-shadow: 1px 0 8px pink;">Annuler</a>
+                    <a href="{{ route('saisie') }}" class="btn btn-danger" style="border-radius: 25px;box-shadow: 1px 0 8px pink;">Annuler</a>
 
                 </div>
             </form>

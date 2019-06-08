@@ -1,288 +1,446 @@
- <!DOCTYPE html>
- <html>
+<!DOCTYPE html>
+<html lang="fr">
 
- <!-- Mirrored from hubancreative.com/projects/templates/coco/classy/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 10 Jun 2018 05:24:15 GMT -->
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
 
- <head>
-   <meta charset="UTF-8">
-   <title>RIMTrans | Agent interface</title>
-   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-   <meta name="apple-mobile-web-app-capable" content="yes" />
-   <meta name="description" content="">
-   <meta name="keywords" content="coco bootstrap template, coco admin, bootstrap,admin template, bootstrap admin,">
-   <meta name="author" content="Huban Creative">
+    <!-- Title Page-->
+    <title>Dashboard</title>
+     <meta http-equiv="Refresh" content="300">
+    <!-- Fontfaces CSS-->
+    <link href="{{asset('template/css/font-face.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('template/vendor/font-awesome-4.7/css/font-awesome.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('template/vendor/font-awesome-5/css/fontawesome-all.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('template/vendor/mdi-font/css/material-design-iconic-font.min.css')}}" rel="stylesheet" media="all">
 
-   <!-- Base Css Files -->
-   <link href="{{ asset('assets/libs/jqueryui/ui-lightness/jquery-ui-1.10.4.custom.min.css ') }}" rel="stylesheet" />
-   <link href="{{ asset('assets/libs/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
-   <link href="{{ asset('assets/libs/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" />
-   <link href="{{ asset('assets/libs/fontello/css/fontello.css') }}" rel="stylesheet" />
-   <link href="{{ asset('assets/libs/animate-css/animate.min.css') }}" rel="stylesheet" />
-   <link href="{{ asset('assets/libs/nifty-modal/css/component.css') }}" rel="stylesheet" />
-   <link href="{{ asset('assets/libs/magnific-popup/magnific-popup.css') }}" rel="stylesheet" />
-   <link href="{{ asset('assets/libs/ios7-switch/ios7-switch.css') }}" rel="stylesheet" />
-   <link href="{{ asset('assets/libs/pace/pace.css') }}" rel="stylesheet" />
-   <link href="{{ asset('assets/libs/sortable/sortable-theme-bootstrap.css') }}" rel="stylesheet" />
-   <link href="{{ asset('assets/libs/bootstrap-datepicker/css/datepicker.css') }}" rel="stylesheet" />
-   <link href="{{ asset('assets/libs/jquery-icheck/skins/all.css') }}" rel="stylesheet" />
-   <!-- Code Highlighter for Demo -->
-   <link href="{{ asset('assets/libs/prettify/github.css') }}" rel="stylesheet" />
+    <!-- Bootstrap CSS-->
+    <link href="{{asset('template/vendor/bootstrap-4.1/bootstrap.min.css')}}" rel="stylesheet" media="all">
 
-   <!-- Extra CSS Libraries Start -->
-   <link href="{{ asset('assets/libs/rickshaw/rickshaw.min.css') }}" rel="stylesheet" type="text/css" />
-   <link href="{{ asset('assets/libs/morrischart/morris.css') }}" rel="stylesheet" type="text/css" />
-   <link href="{{ asset('assets/libs/jquery-jvectormap/css/jquery-jvectormap-1.2.2.css') }}" rel="stylesheet" type="text/css" />
-   <link href="{{ asset('assets/libs/jquery-clock/clock.css') }}" rel="stylesheet" type="text/css" />
-   <link href="{{ asset('assets/libs/bootstrap-calendar/css/bic_calendar.css') }}" rel="stylesheet" type="text/css" />
-   <link href="{{ asset('assets/libs/sortable/sortable-theme-bootstrap.css') }}" rel="stylesheet" type="text/css" />
-   <link href="{{ asset('assets/libs/jquery-weather/simpleweather.css') }}" rel="stylesheet" type="text/css" />
-   <link href="{{ asset('assets/libs/bootstrap-xeditable/css/bootstrap-editable.css') }}" rel="stylesheet" type="text/css" />
-   <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css" />
-   <!-- Extra CSS Libraries End -->
-   <link href="{{ asset('assets/css/style-responsive.css') }}" rel="stylesheet" />
+    <!-- Vendor CSS-->
+    <link href="{{asset('template/vendor/animsition/animsition.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('template/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('template/vendor/wow/animate.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('template/vendor/css-hamburgers/hamburgers.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('template/vendor/slick/slick.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('template/vendor/select2/select2.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('template/vendor/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" media="all">
 
-   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-   <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
+    <!-- Main CSS-->
+    <link href="{{asset('template/css/theme.css')}}" rel="stylesheet" media="all">
 
-   <link rel="shortcut icon" href="{{ asset('assets/img/favicon.ico') }}">
-   <link rel="apple-touch-icon" href="{{ asset('assets/img/apple-touch-icon.png') }}" />
-   <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('assets/img/apple-touch-icon-57x57.png') }}" />
-   <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('assets/img/apple-touch-icon-72x72.png') }}" />
-   <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/apple-touch-icon-76x76.png') }}" />
-   <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('assets/img/apple-touch-icon-114x114.png') }}" />
-   <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets/img/apple-touch-icon-120x120.png') }}" />
-   <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('assets/img/apple-touch-icon-144x144.png') }}" />
-   <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('assets/img/apple-touch-icon-152x152.png') }}" />
- </head>
+</head>
 
- <body class="fixed-left">
-
-   <!-- Modal Logout -->
-   <div class="md-modal md-just-me" id="logout-modal">
-     <div class="md-content">
-       <h3><strong>Logout</strong> Confirmation</h3>
-       <div>
-         <p class="text-center">Are you sure want to logout from this awesome system?</p>
-         <p class="text-center">
-           <button class="btn btn-danger md-close">No</button>
-           <a href="{{ route('logout') }}" class="btn btn-success md-close">Oui</a>
-         </p>
-       </div>
-     </div>
-   </div> <!-- Modal End -->
-   <!-- Begin page -->
-   <div id="wrapper">
-
-     <!-- Top Bar Start -->
-     <div class="topbar">
-       <div class="topbar-left">
-         <div class="logo">
-           <img src="{{asset('img/logo.png')}}" class="img-responsive" style="height: 60px;width: 60px;float: left;">
-           <p style="color:white;font-size: 23px;">{{ config('app.name', 'Laravel') }}</p>
-         </div>
-         <button class="button-menu-mobile open-left">
-           <i class="fa fa-bars"></i>
-         </button>
-       </div>
-       <!-- Button mobile view to collapse sidebar menu -->
-       <div class="navbar navbar-default" role="navigation">
-         <div class="container">
-           <div class="navbar-collapse2">
-             <ul class="nav navbar-nav hidden-xs">
-               <!--
-                    <li class="language_bar dropdown hidden-xs">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">English (US) <i class="fa fa-caret-down"></i></a>
-                        <ul class="dropdown-menu pull-right">
-                            <li><a href="#">Arabic</a></li>
-                            <li><a href="#">French</a></li>
-                            
-                        </ul>
-                    </li>
-                    -->
-             </ul>
-             <ul class="nav navbar-nav navbar-right top-navbar">
-               <li class="dropdown iconify hide-phone">
-                 <ul class="dropdown-menu dropdown-message">
-
-
-                 </ul>
-               </li>
-               <li class="dropdown iconify hide-phone"><a href="#" onclick="javascript:toggle_fullscreen()"><i class="icon-resize-full-2"></i></a></li>
-               <li class="dropdown topbar-profile">
-                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="rounded-image topbar-profile-image"><img src="{{ asset('assets/img/88.png') }}"></span><strong>Agent</strong> <i class="fa fa-caret-down"></i></a>
-                 <ul class="dropdown-menu">
-                   <li><a href="#">Mon Profile</a></li>
-                   <li class="divider"></li>
-                   <!--<li><a href="#"><i class="icon-help-2"></i> Help</a></li>
-                            <li><a href="#"><i class="icon-lock-1"></i> Lock me</a></li>-->
-                   <li><a href="{{ route('logout') }}"><i class="icon-logout-1"></i> Deconnexion</a></li>
-                 </ul>
-               </li>
-
-             </ul>
-           </div>
-           <!--/.nav-collapse -->
-         </div>
-       </div>
-     </div>
-     <!-- Top Bar End -->
-     <!-- Left Sidebar Start -->
-     <div class="left side-menu">
-       <div class="sidebar-inner slimscrollleft">
-         <!-- Search form -->
-         <form role="search" class="navbar-form">
-           <div class="form-group">
-             <input type="text" placeholder="Search" class="form-control">
-             <button type="submit" class="btn search-button"><i class="fa fa-search"></i></button>
-           </div>
-         </form>
-         <div class="clearfix"></div>
-         <!--- Profile -->
-         <div class="profile-info" style="background-color: #4B5B65;">
-           <div class="col-xs-4">
-             <a href="profile.html" class="rounded-image profile-image"><img src="{{ asset('assets/img/88.png') }}"></a>
-           </div>
-           <div class="col-xs-8">
-             <div class="profile-text">Bienvenue <b>{{ Auth::user()->name }}</b></div>
-
-             <!--<div class=" profile-buttons">
-               <a href="javascript:;"><i class="fa fa-envelope-o pulse"></i></a>
-
-               <a href="javascript:;" title="Sign Out"><i class="fa fa-power-off text-red-1"></i></a>
-             </div>-->
-
-           </div>
-         </div>
-         <!--- Divider -->
-         <div class="clearfix"></div>
-         <hr class="divider" />
-         <div class="clearfix"></div>
-         <!--- Divider -->
-         <div id="sidebar-menu">
-           <ul>
-             <li class='has_sub'><a href='javascript:void(0);'>
-                 <i class='icon-home-3'></i><span>Accueil</span> </li>
-             <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
-
-             </li>
-
-             <li class='has_sub'><a href='javascript:void(0);'><i class='icon-pencil-3'></i><span>Transferts</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
-               <ul>
-                 <li><a href="{{ route('trensfert') }}"><span>Effectuer un transfer</span></a></li>
-               </ul>
-             </li>
-
-             <!-- <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-table'></i><span>Configuration</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
-                             <ul>
-                                 <li><a href='#'><span>account setup</span></a></li>
-                                 <li><a href='#'><span>Datatables</span></a></li>
-                             </ul>
-                         </li>-->
-           </ul>
-
-
-           <div class="clearfix"></div>
-         </div>
-         <div class="clearfix"></div>
-
-         <div class="clearfix"></div><br><br><br>
-       </div>
-
-     </div>
-
-     <!-- Right Sidebar End -->
-     <!-- Start right content -->
-     <div class="content-page">
-       <!-- ============================================================== -->
-       <!-- Start Content here -->
-       <!-- ============================================================== -->
-       <div class="content">
-         <!-- Start info box -->
-
-
-         <div class="row">
-           <div class="col-lg-8 col-md-6 portlets">
-             @yield('content')
-
-           </div>
-
-
-           <!-- Footer Start 
-            <footer style="position: fixed;">
-                RIMTrans  &copy; 2019
-                <div class="footer-links pull-right">
-                    <a href="#">About</a><a href="#">Support</a><a href="#">Terms of Service</a><a href="#">Legal</a><a href="#">Help</a><a href="#">Contact Us</a>
+<body class="animsition">
+  <div class="page-wrapper">
+    <!-- HEADER MOBILE-->
+    <header class="header-mobile d-block d-lg-none">
+        <div class="header-mobile__bar">
+            <div class="container-fluid">
+                <div class="header-mobile-inner">
+                    <a class="logo" href="{{ route('agent') }}">
+                        <img src="{{asset('img/logo.png')}}" alt="CoolAdmin" class="img-responsive" style="height: 60px;width: 60px;float: left;"/>
+                    </a>
+                    <h2>{{ config('app.name', 'Laravel') }}</h2>
+                    <button class="hamburger hamburger--slider" type="button">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </button>
                 </div>
-            </footer>
-            Footer End -->
-         </div>
-         <!-- ============================================================== -->
-         <!-- End content here -->
-         <!-- ============================================================== -->
+            </div>
+        </div>
+        <nav class="navbar-mobile">
+          <div class="container-fluid">
+            <ul class="navbar-mobile__list list-unstyled">
+              <li>
+                <a href="{{ route('agent') }}">
+                  <i class="fas fa-home"></i>Accueil
+                </a>
+              </li>
+              <li class="has-sub">
+                <a class="js-arrow" href="#">
+                    <i class="fas fa-exchange-alt"></i>Transferts</a>
+                <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                  <li>
+                      <a href="{{ route('saisie') }}">Effectuer un transfer</a>
+                  </li>
+                  <li>
+                      <a href="#" data-toggle="modal" data-target="#retrais">Retrais</a>
+                  </li> 
+                </ul>
+              </li>
+              <li class="has-sub">
+                    <a class="js-arrow" href="#">
+                        <i class="fas fa-money"></i>Caisse</a>
+                    <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                         <li>
+                              <a href="#" data-toggle="modal" data-target="#ajout">Ajout</a>
+                          </li>
+                          <li>
+                              <a href="#" data-toggle="modal" data-target="#retirais">Retirais</a>
+                          </li>
+                    </ul>
+                </li>
+            </ul>
+          </div>
+        </nav>
+    </header>
+    <!-- END HEADER MOBILE-->
 
-       </div>
-       <!-- End right content -->
+    <!-- MENU SIDEBAR-->
+    <aside class="menu-sidebar d-none d-lg-block">
+      <div class="logo">
+          <a href="{{ route('agent') }}">
+              <img src="{{asset('img/logo.png')}}" alt="Cool Admin" class="img-responsive" style="height: 60px;width: 60px;float: left;"/>
+          </a>
+          <h2>{{ config('app.name', 'Laravel') }}</h2>
+      </div>
+          <nav class="navbar-sidebar">
+              <ul class="list-unstyled navbar__list">
 
-     </div>
+                 <li>
+                      <a href="{{ route('agent') }}">
+                          <i class="fas fa-home"></i>Accueil</a>
+                  </li>
+                  <li class="active has-sub">
+                      <a dusk="trans" class="js-arrow" href="#">
+                          <i class="fas fa-exchange-alt"></i>Transferts</a>
+                      <ul class="list-unstyled navbar__sub-list js-sub-list">
+                          <li>
+                              <a href="{{ route('saisie') }}">Effectuer un transfer</a>
+                          </li>
+                          <li>
+                              <a dusk="retrais" href="#" data-toggle="modal" data-target="#retrais">Retrais</a>
+                          </li>
+                      </ul>
+                  </li>
 
-     <!-- End of page -->
-     <!-- the overlay modal element -->
-     <div class="md-overlay"></div>
-     <!-- End of eoverlay modal -->
-     <script>
-       var resizefunc = [];
-     </script>
-     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-     <script src="{{ asset('assets/libs/jquery/jquery-1.11.1.min.js') }}"></script>
-     <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.min.js') }}"></script>
-     <script src="{{ asset('assets/libs/jqueryui/jquery-ui-1.10.4.custom.min.js') }}"></script>
-     <script src="{{ asset('assets/libs/jquery-ui-touch/jquery.ui.touch-punch.min.js') }}"></script>
-     <script src="{{ asset('assets/libs/jquery-detectmobile/detect.js') }}"></script>
-     <script src="{{ asset('assets/libs/jquery-animate-numbers/jquery.animateNumbers.js') }}"></script>
-     <script src="{{ asset('assets/libs/ios7-switch/ios7.switch.js') }}"></script>
-     <script src="{{ asset('assets/libs/fastclick/fastclick.js') }}"></script>
-     <script src="{{ asset('assets/libs/jquery-blockui/jquery.blockUI.js') }}"></script>
-     <script src="{{ asset('assets/libs/bootstrap-bootbox/bootbox.min.js') }}"></script>
-     <script src="{{ asset('assets/libs/jquery-slimscroll/jquery.slimscroll.js') }}"></script>
-     <script src="{{ asset('assets/libs/jquery-sparkline/jquery-sparkline.js') }}"></script>
-     <script src="{{ asset('assets/libs/nifty-modal/js/classie.js') }}"></script>
-     <script src="{{ asset('assets/libs/nifty-modal/js/modalEffects.js') }}"></script>
-     <script src="{{ asset('assets/libs/sortable/sortable.min.js') }}"></script>
-     <script src="{{ asset('assets/libs/bootstrap-fileinput/bootstrap.file-input.js') }}"></script>
-     <script src="{{ asset('assets/libs/bootstrap-select/bootstrap-select.min.js') }}"></script>
-     <script src="{{ asset('assets/libs/bootstrap-select2/select2.min.js') }}"></script>
-     <script src="{{ asset('assets/libs/magnific-popup/jquery.magnific-popup.min.js') }}"></script>
-     <script src="{{ asset('assets/libs/pace/pace.min.js') }}"></script>
-     <script src="{{ asset('assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>
-     <script src="{{ asset('assets/libs/jquery-icheck/icheck.min.js') }}"></script>
+                   <li class="active has-sub">
+                      <a dusk="mjr" class="js-arrow" href="#">
+                          <i class="fas fa-money"></i>Caisse</a>
+                      <ul class="list-unstyled navbar__sub-list js-sub-list">
+                          <li>
+                              <a dusk="ajt" href="#" data-toggle="modal" data-target="#ajout">Ajout</a>
+                          </li>
+                          <li>
+                              <a dusk="rtr" href="#" data-toggle="modal" data-target="#retirais">Retirais</a>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
+          </nav>
+      </div>
+    </aside>
+      <!-- END MENU SIDEBAR-->
 
-     <!-- Demo Specific JS Libraries -->
-     <script src="{{ asset('assets/libs/prettify/prettify.js') }}"></script>
+      <!-- PAGE CONTAINER-->
+      <div class="page-container">
+        <!-- HEADER DESKTOP-->
+        <header class="header-desktop">
+            <div class="section__content section__content--p30">
+                <div class="container-fluid">
+                    <div class="header-wrap">
+                        <form class="form-header" action="{{ route('retrait') }}" method="get">
+                          {{ csrf_field() }}
+                            <input class="au-input au-input--xl" type="text" name="code" placeholder="saisir le code transfert" />
+                            <button dusk="val" class="au-btn--submit" type="submit">
+                                <i class="zmdi zmdi-search"></i>
+                            </button>
+                        </form>
+                        <div class="header-button">
+                            <!-- <div class="noti-wrap">
+                                <div class="noti__item js-item-menu">
+                                    <i class="zmdi zmdi-comment-more"></i>
+                                    <span class="quantity">1</span>
+                                    <div class="mess-dropdown js-dropdown">
+                                        <div class="mess__title">
+                                            <p>You have 2 news message</p>
+                                        </div>
+                                        <div class="mess__item">
+                                            <div class="image img-cir img-40">
+                                                <img src="images/icon/avatar-06.jpg" alt="Michelle Moreno" />
+                                            </div>
+                                            <div class="content">
+                                                <h6>Michelle Moreno</h6>
+                                                <p>Have sent a photo</p>
+                                                <span class="time">3 min ago</span>
+                                            </div>
+                                        </div>
+                                        <div class="mess__item">
+                                            <div class="image img-cir img-40">
+                                                <img src="images/icon/avatar-04.jpg" alt="Diane Myers" />
+                                            </div>
+                                            <div class="content">
+                                                <h6>Diane Myers</h6>
+                                                <p>You are now connected on message</p>
+                                                <span class="time">Yesterday</span>
+                                            </div>
+                                        </div>
+                                        <div class="mess__footer">
+                                            <a href="#">View all messages</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="noti__item js-item-menu">
+                                    <i class="zmdi zmdi-email"></i>
+                                    <span class="quantity">1</span>
+                                    <div class="email-dropdown js-dropdown">
+                                        <div class="email__title">
+                                            <p>You have 3 New Emails</p>
+                                        </div>
+                                        <div class="email__item">
+                                            <div class="image img-cir img-40">
+                                                <img src="images/icon/avatar-06.jpg" alt="Cynthia Harvey" />
+                                            </div>
+                                            <div class="content">
+                                                <p>Meeting about new dashboard...</p>
+                                                <span>Cynthia Harvey, 3 min ago</span>
+                                            </div>
+                                        </div>
+                                        <div class="email__item">
+                                            <div class="image img-cir img-40">
+                                                <img src="images/icon/avatar-05.jpg" alt="Cynthia Harvey" />
+                                            </div>
+                                            <div class="content">
+                                                <p>Meeting about new dashboard...</p>
+                                                <span>Cynthia Harvey, Yesterday</span>
+                                            </div>
+                                        </div>
+                                        <div class="email__item">
+                                            <div class="image img-cir img-40">
+                                                <img src="images/icon/avatar-04.jpg" alt="Cynthia Harvey" />
+                                            </div>
+                                            <div class="content">
+                                                <p>Meeting about new dashboard...</p>
+                                                <span>Cynthia Harvey, April 12,,2018</span>
+                                            </div>
+                                        </div>
+                                        <div class="email__footer">
+                                            <a href="#">See all emails</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="noti__item js-item-menu">
+                                    <i class="zmdi zmdi-notifications"></i>
+                                    <span class="quantity">3</span>
+                                    <div class="notifi-dropdown js-dropdown">
+                                        <div class="notifi__title">
+                                            <p>You have 3 Notifications</p>
+                                        </div>
+                                        <div class="notifi__item">
+                                            <div class="bg-c1 img-cir img-40">
+                                                <i class="zmdi zmdi-email-open"></i>
+                                            </div>
+                                            <div class="content">
+                                                <p>You got a email notification</p>
+                                                <span class="date">April 12, 2018 06:50</span>
+                                            </div>
+                                        </div>
+                                        <div class="notifi__item">
+                                            <div class="bg-c2 img-cir img-40">
+                                                <i class="zmdi zmdi-account-box"></i>
+                                            </div>
+                                            <div class="content">
+                                                <p>Your account has been blocked</p>
+                                                <span class="date">April 12, 2018 06:50</span>
+                                            </div>
+                                        </div>
+                                        <div class="notifi__item">
+                                            <div class="bg-c3 img-cir img-40">
+                                                <i class="zmdi zmdi-file-text"></i>
+                                            </div>
+                                            <div class="content">
+                                                <p>You got a new file</p>
+                                                <span class="date">April 12, 2018 06:50</span>
+                                            </div>
+                                        </div>
+                                        <div class="notifi__footer">
+                                            <a href="#">All notifications</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div></div>
+                            <div class="account-wrap">
+                                <div class="account-item clearfix js-item-menu">
+                                    <!--<div class="image">
+                                        <img src="images/icon/avatar-01.jpg" />
+                                    </div>-->
+                                    <div class="content">
+                                        <a class="js-acc-btn" href="#">{{ Auth::user()->name }}</a>
+                                    </div>
+                                    <div class="account-dropdown js-dropdown">
+                                        <div class="info clearfix">
+                                            <div class="image">
+                                                <a href="#">
+                                                    <img src="{{asset('img/avatar.png')}}"  />
+                                                </a>
+                                            </div>
+                                            <div class="content">
+                                                <h5 class="name">
+                                                    {{ Auth::user()->name }}
+                                                </h5>
+                                                <span class="email">{{ Auth::user()->email }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="account-dropdown__body">
+                                            
+                                            <div class="account-dropdown__item">
+                                                <a href="#">
+                                                    <i class="zmdi zmdi-settings"></i>Setting</a>
+                                            </div>
+                                           
+                                        </div>
+                                        <div class="account-dropdown__footer">
+                                            <a href="{{ route('logout') }}">
+                                                <i class="zmdi zmdi-power"></i>Deconnexion</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- HEADER DESKTOP-->
 
-     <script src="{{ asset('assets/js/init.js') }}"></script>
-     <!-- Page Specific JS Libraries -->
-     <script src="{{ asset('assets/libs/d3/d3.v3.js') }}"></script>
-     <script src="{{ asset('assets/libs/rickshaw/rickshaw.min.js') }}"></script>
-     <script src="{{ asset('assets/libs/raphael/raphael-min.js') }}"></script>
-     <script src="{{ asset('assets/libs/morrischart/morris.min.js') }}"></script>
-     <script src="{{ asset('assets/libs/jquery-knob/jquery.knob.js') }}"></script>
-     <script src="{{ asset('assets/libs/jquery-jvectormap/js/jquery-jvectormap-1.2.2.min.js') }}"></script>
-     <script src="{{ asset('assets/libs/jquery-jvectormap/js/jquery-jvectormap-us-aea-en.js') }}"></script>
-     <script src="{{ asset('assets/libs/jquery-clock/clock.js') }}"></script>
-     <script src="{{ asset('assets/libs/jquery-easypiechart/jquery.easypiechart.min.js') }}"></script>
-     <script src="{{ asset('assets/libs/jquery-weather/jquery.simpleWeather-2.6.min.js') }}"></script>
-     <script src="{{ asset('assets/libs/bootstrap-xeditable/js/bootstrap-editable.min.js') }}"></script>
-     <script src="{{ asset('assets/libs/bootstrap-calendar/js/bic_calendar.min.js') }}"></script>
-     <script src="{{ asset('assets/js/apps/calculator.js') }}"></script>
-     <script src="{{ asset('assets/js/apps/todo.js') }}"></script>
-     <script src="{{ asset('assets/js/apps/notes.js') }}"></script>
-     <!--<script src="assets/js/pages/index.js"></script>-->
- </body>
+        <!-- MAIN CONTENT-->
+        <div class="main-content">
+            <div class="section__content section__content--p30">
+                <div class="container-fluid">
+                    @yield('content')
+                    <div class="row">
+                        <div class="col-md-12">
+                          <div class="copyright">
+                            <p>Copyright © 2019 </p>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END MAIN CONTENT-->
+        <!-- modal retrais -->
+        <div class="modal fade" id="retrais" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="smallmodalLabel">Retrais</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                    <form class="form-header" action="{{ route('retrait') }}" method="get">
+                        {{ csrf_field() }}
+                        <div class="col col-md-12">
+                            <div class="input-group">
+                                <input type="text" id="input2-group2" name="code" placeholder="code transfert" class="form-control">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-primary">Valider</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- fin modal retrais -->
 
- <!-- Mirrored from hubancreative.com/projects/templates/coco/classy/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 10 Jun 2018 05:26:34 GMT -->
+        <!-- modal ajout de solde dans la caisse -->
+        <div class="modal fade" id="ajout" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="smallmodalLabel">ajouter</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                    <form class="form-header" action="{{ route('ajout') }}" method="post">
+                        {{ csrf_field() }}
+                        <div class="col col-md-12">
+                            <div class="input-group">
+                                <input type="text" id="input2-group2" name="montant" placeholder="montant" class="form-control">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-primary">Valider</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- fin modal ajout de solde dans la caisse  -->
 
- </html>
+        <!-- modal retirais du solde la caisse -->
+        <div class="modal fade" id="retirais" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="smallmodalLabel">Retirais</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                    <form class="form-header" action="{{ route('retirais') }}" method="post">
+                        {{ csrf_field() }}
+                        <div class="col col-md-12">
+                            <div class="input-group">
+                                <input type="text" id="input2-group2" name="montant" placeholder="montant" class="form-control">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-primary">Valider</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- fin modal retirais du solde la caisse  -->
+      <!-- END PAGE CONTAINER-->
+      </div>
+
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="{{asset('template/vendor/jquery-3.2.1.min.js')}}"></script>
+    <!-- Bootstrap JS-->
+    <script src="{{asset('template/vendor/bootstrap-4.1/popper.min.js')}}"></script>
+    <script src="{{asset('template/vendor/bootstrap-4.1/bootstrap.min.js')}}"></script>
+    <!-- Vendor JS       -->
+    <script src="{{asset('template/vendor/slick/slick.min.js')}}">
+    </script>
+    <script src="{{asset('template/vendor/wow/wow.min.js')}}"></script>
+    <script src="{{asset('template/vendor/animsition/animsition.min.js')}}"></script>
+    <script src="{{asset('template/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js')}}">
+    </script>
+    <script src="{{asset('template/vendor/counter-up/jquery.waypoints.min.js')}}"></script>
+    <script src="{{asset('template/vendor/counter-up/jquery.counterup.min.js')}}">
+    </script>
+    <script src="{{asset('template/vendor/circle-progress/circle-progress.min.js')}}"></script>
+    <script src="{{asset('template/vendor/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
+    <script src="{{asset('template/vendor/chartjs/Chart.bundle.min.js')}}"></script>
+    <script src="{{asset('template/vendor/select2/select2.min.js')}}">
+    </script>
+
+    <!-- Main JS-->
+    <script src="{{asset('template/js/main.js')}}"></script>
+
+  </body>
+
+</html>
+<!-- end document-->
+
+             

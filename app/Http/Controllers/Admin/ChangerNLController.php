@@ -24,7 +24,7 @@ class ChangerNLController extends Controller
 		$file_contents = file_get_contents($path_to_file);
 		$file_contents = str_replace("APP_NAME=\"$AncienN\"", "APP_NAME=\"$NouveauN\"", $file_contents);
 		file_put_contents($path_to_file, $file_contents);
-		return redirect('conf');
+		return back();
 	}
 
 

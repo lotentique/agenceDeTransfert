@@ -1,22 +1,29 @@
 body{
-	background: #f7f7f7;
-	box-shadow: 3px 0 8px rgba(0, 0, 0, 0.26);
-	
+	/*box-shadow: 3px 0 8px rgba(0, 0, 0, 0.26);;*/
+    background: url('../img/image4.png'), -webkit-linear-gradient(80deg, #f7f7f7 50%, SlateBlue 50%);
+    background-repeat: no-repeat;
+    background-size: contain;
+	background-attachment: fixed;
+
 }
+
 
 .login{
 	
-	margin-top: 5%;
-	margin-left:10% ;
+	margin-top: -4%;
+	margin-left:50% ;
 	margin-right:10% ;
-	padding: 10%;
-	background-image: url('../img/log.png');
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+	padding: 8%;
+	background-image: -moz-linear-gradient(70deg, LightGray 0%, SlateBlue 100%);
+    background-image: -webkit-linear-gradient(70deg, LightGray 0%, SlateBlue 100%);
+    background-image: -ms-linear-gradient(70deg, LightGray 0%, SlateBlue 100%);
+	border-radius: 20%;
+}
+form{
+	margin-left: 55px;
 }
 .form-group input{
-	border-radius: 96px;
-	border:1px solid skyblue; 
+	 
 	width: 230px;
 }
 
@@ -24,7 +31,7 @@ body{
 	background-color: black;
 	padding: 10px 30px;
 	color: white;
-    margin-left: 20px;
+    margin-left: 50px;
     text-align: center;
     text-shadow: 1px 3px 7px  black;
     margin-bottom: 15px;
@@ -34,15 +41,100 @@ body{
 	color: white;
 }
 
- a{
+a{
  	margin-top: 20px;
 	margin-left: 20px;
 }
+/* Effect 12: Letter fill */
+.la-anim-12 {
+	margin-left: 22%;
+	color: rgba(255,255,255,0.6);
+}
 
+.la-anim-12::before {
+	position: absolute;
+	overflow: hidden;
+	width: 0;
+	color: white;
+	content: attr(data-content);
+	text-align: left;
+	white-space: nowrap;
+	text-shadow: 2px 2px 2px black;
+}
+
+.la-anim-12.la-animate::before {
+	width: 100%;
+	opacity: 0;
+	-webkit-transition: width 5.7s linear, opacity 0.3s 5.7s;
+	transition: width 5.7s linear, opacity 0.3s 5.7s;
+}
+
+.slogan h1{
+	float: right;
+	margin-top: 140px;
+	font-style: oblique;
+	text-shadow: 1px 1px 1px black;
+	color:gray;
+	font-size: 3vw;
+	font-family: ;
+    opacity: .8;
+}
+.slogan h1 span{
+	font-style: normal;
+	color: Slateblue;
+	border-bottom: 1px solid Dodgerblue;
+	box-shadow: 1px 2px 6px 2px LightGray;
+}
 
 @media all and (max-width: 479px) {
 	form{
-		margin-left: -26px;
+		margin-left: -18px;
+	}
+	.login{
+		margin-left: 10%;
+	}
+	.la-anim-12 {
+	font-size: 8vw;
+     }
+     .slogan h1{
+	
+	font-size: 20px;
+	
+    }
+	
+}
+@media all and (min-width: 479px) and (max-width: 679px) {
+
+	form{
+		margin-left: 40px;
+	}
+	.login{
+		margin-left: 10%;
 	}
 	
 }
+
+@media all and (min-width: 679px) and (max-width: 779px) {
+	
+	.login{
+		margin-left: 20%;
+	}
+	form{
+		margin-left: 85px;
+	}
+	.la-anim-12 {
+	
+	margin-left: 30%;
+	
+    }
+	
+}
+@media all and (min-width: 779px) and (max-width: 1079px) {
+
+	form{
+		margin-left: -15px;
+	}
+	
+}
+
+

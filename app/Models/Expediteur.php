@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Expediteur extends Model
 {
     protected $fillable = [
-        'nom', 'prenom', 'tel', 'nni'
+        'nom', 'prenom', 'tel', 'nni','email'
     ];
 }

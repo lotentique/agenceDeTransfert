@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Validator;
 use App\Models\Point_de_transfert;
 use App\Models\Ville;
+use App\Models\Historique_caisse;
 use App\User;
 
 class PTransfertController extends Controller
@@ -130,5 +131,19 @@ class PTransfertController extends Controller
     public function destroyForm(Point_de_transfert $Point_de_transferts)
     {
         return view('admin.PTransfert.destroy', compact('Point_de_transferts'));
+    }
+
+    public function Hcaisse(Request $request){
+        $id=$request->get('id');
+        $Hcaisse = Historique_caisse::where('id_pnt', '=', $id)->get();
+        //return json_encode(array($nagent,$nadmin,$nbcm));
+        return json_encode($Hcaisse);
+    }
+
+
+    public function carte()
+    {
+        
+        return view('admin.carte.map');
     }
 }

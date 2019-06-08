@@ -1,0 +1,28 @@
+.gnw-map-service{
+	position:static;
+	height:600px;
+}
+.gnw-map-service__google{
+	background:#e5e3df;
+	position:static;
+}
+.gnw-map-service__bing,.gnw-map-service__mapquest,.gnw-map-service__osm{
+	background:#ddd;
+	position:static;
+}
+.gnw-map-service__yandex{
+	background:#f3f1ed;
+	position:static;
+}
+.gnw-map-service__mapkit{
+	background:#f8f4ec;
+	position:static;
+}
+.gnw-map{
+	height:inherit;
+	position:static;
+}
+.gnw-map .mk-map-view>.syrup-canvas{
+	margin-left:-50%;
+	position:static;
+}

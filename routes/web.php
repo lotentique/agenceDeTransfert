@@ -17,44 +17,35 @@ Route::group(['namespace' => 'Auth'], function () {
     Route::get('logout', 'MonLoginController@destroy')->name('logout');
 });
 
-
-//les routes pour crud agent
+//les routes pour crud utilisateurs
 Route::group(['namespace' => 'Admin'], function () {
-    Route::match(['get', 'head'], 'admin/agents', 'AgentController@index')->name('agents.index')->middleware('admin');
-    Route::post('admin/agents', 'AgentController@store')->name('agents.store')->middleware('admin');
-    Route::match(['get', 'head'], 'admin/agents/create', 'AgentController@create')->name('agents.create');
-    Route::delete('admin/agents/{user}', 'AgentController@destroy')->name('agents.destroy');
-    Route::match(['put', 'path'], 'admin/agents/{user}', 'AgentController@update')->name('agents.update')->middleware('admin');
-    Route::get('admin/agents/{user}/edit', 'AgentController@edit')->name('agents.edit')->middleware('admin');
-    Route::get('admin/agents/{user}/destroy', 'AgentController@destroyForm')->name('agents.delete')->middleware('admin');
+    Route::get('Utilisateurs', 'UtilisateursController@index')->name('Utilisateurs.index')->middleware('admin');
+    Route::post('admin/ajax', 'UtilisateursController@ajax')->name('ajax')->middleware('admin');
+    Route::post('admin/Rptransfert', 'UtilisateursController@Rptransfert')->name('ajax2')->middleware('admin');
+    Route::post('admin/Validation', 'UtilisateursController@Validation')->name('ajax3')->middleware('admin');
+    Route::post('admin/ajout', 'UtilisateursController@store')->name('ajax4')->middleware('admin');
+    Route::post('admin/Modif', 'UtilisateursController@edit')->name('ajax5')->middleware('admin');
+    Route::post('admin/update', 'UtilisateursController@update')->name('ajax6')->middleware('admin');
+    Route::post('admin/Supp', 'UtilisateursController@destroy')->name('ajax7')->middleware('admin');
+    Route::post('admin/nbrU', 'UtilisateursController@nbrU')->name('ajax8')->middleware('admin');
+
 });
 
-//les routes pour crud bcm
-Route::group(['namespace' => 'Admin'], function () {
-    Route::match(['get', 'head'], 'admin/bcm', 'BcmController@index')->name('bcm.index')->middleware('admin');
-    Route::post('admin/bcm', 'BcmController@store')->name('bcm.store')->middleware('admin');
-    Route::match(['get', 'head'], 'admin/bcm/create', 'BcmController@create')->name('bcm.create');
-    Route::delete('admin/bcm/{user}', 'BcmController@destroy')->name('bcm.destroy');
-    Route::match(['put', 'path'], 'admin/bcm/{user}', 'BcmController@update')->name('bcm.update')->middleware('admin');
-    Route::get('admin/bcm/{user}/edit', 'BcmController@edit')->name('bcm.edit')->middleware('admin');
-    Route::get('admin/bcm/{user}/destroy', 'BcmController@destroyForm')->name('bcm.delete')->middleware('admin');
-});
 
 //les routes pour crud admin
 Route::group(['namespace' => 'Admin'], function () {
-    Route::match(['get', 'head'], 'admin/admin', 'AdminController@index')->name('admin.index')->middleware('admin');
-    Route::post('admin/admin', 'AdminController@store')->name('admin.store')->middleware('admin');
-    Route::match(['get', 'head'], 'admin/admin/create', 'AdminController@create')->name('admin.create');
-    Route::delete('admin/admin/{user}', 'AdminController@destroy')->name('admin.destroy');
-    Route::match(['put', 'path'], 'admin/admin/{user}', 'AdminController@update')->name('admin.update')->middleware('admin');
     Route::get('admin/admin/{user}/edit', 'AdminController@edit')->name('admin.edit')->middleware('admin');
-    Route::get('admin/admin/{user}/destroy', 'AdminController@destroyForm')->name('admin.delete')->middleware('admin');
+    Route::get('admin/exportUtilisateur', 'AdminController@exportUtilisateur')->name('listeUtilisateur')->middleware('admin');
+    Route::get('admin/exportTransfert', 'AdminController@exportTransfert')->name('listeTransfert')->middleware('admin');
+
+    Route::get('admin/exportPoint', 'AdminController@exportPoint')->name('listePoint')->middleware('admin');
     Route::match(['put', 'path'], 'admin/admi/{user}', 'AdminController@modifProfil')->name('admin.profil')->middleware('admin');
+    Route::get('admin/import', 'AdminController@indexImport')->name('importer')->middleware('admin');
+    Route::post('admin/submit', 'AdminController@submit')->name('im')->middleware('admin');
 });
 
-Route::get('admin', function () {
-    return view('admin');
-})->middleware('admin');
+
+Route::get('/admin', 'HomeController@index')->name('admin')->middleware('admin');
 
 Route::get('/', function () {
     return redirect('login');
@@ -101,21 +92,59 @@ Route::group(['namespace' => 'Admin'], function () {
     Route::match(['put', 'path'], 'admin/PTransfert/{Point_de_transferts}', 'PTransfertController@update')->name('PTransfert.update')->middleware('admin');
     Route::get('admin/PTransfert/{Point_de_transferts}/edit', 'PTransfertController@edit')->name('PTransfert.edit')->middleware('admin');
     Route::get('admin/PTransfert/{Point_de_transferts}/destroy', 'PTransfertController@destroyForm')->name('PTransfert.delete')->middleware('admin');
+    Route::post('admin/PTransfert/Hcaisse', 'PTransfertController@Hcaisse')->middleware('admin');
 });
 //fin crud point de transfert
 
-// les routes effectue un transfert 
-Route::group(['namespace' => 'Agent'], function () {
-    Route::match(['get', 'head'], 'agent/trensfert', 'TransfertController@index')->name('trensfert')->middleware('agent');
-    Route::post('agent/trensfert/confirme', 'TransfertController@confirm')->name('trensfert.confirm')->middleware('agent');
-    Route::post('agent/trensfert', 'TransfertController@store')->name('trensfert.store')->middleware('agent');
-    //Route::match(['put', 'path'], 'admin/tarification/{parametre_applique}', 'ParametreTarifController@update')->name('tarification.update')->middleware('admin');
+//les routes de la transaction
+Route::group(['namespace' => 'Admin'], function () {
+Route::match(['get', 'head'], 'admin/Transaction', 'TransactionController@index')->name('Transaction.index')->middleware('admin');
 
-    Route::match(['get', 'head'], 'agent/code', 'TransfertController@codage')->name('code')->middleware('agent');
 });
 
-Route::get('agent', function () {
+//fin
+
+// les routes effectue un transfert
+Route::group(['namespace' => 'Agent'], function () {
+    Route::match(['get', 'head'], 'agent/trensfert/saisie', 'TransfertController@index')->name('saisie')->middleware('agent');
+Route::post('agent/trensfert/saisie', 'TransfertController@verif')->name('saisie.confirm')->middleware('agent');
+
+    Route::match(['get', 'head'], 'agent/trensfert', 'TransfertController@transfer')->name('trensfert')->middleware('agent');
+    Route::post('agent/trensfert/confirme', 'TransfertController@confirm')->name('trensfert.confirm')->middleware('agent');
+    Route::post('agent/trensfert', 'TransfertController@store')->name('trensfert.store')->middleware('agent');
+    Route::match(['get', 'head'], 'agent/code', 'TransfertController@codage')->name('code')->middleware('agent');
+    Route::match(['get', 'head'], 'agent/email', 'TransfertController@st')->name('emails.welcome')->middleware('agent');
+});
+
+
+// les routes effectue un retrais
+Route::group(['namespace' => 'Agent'], function () {
+    Route::post('agent/retrait/confirme', 'RetraitController@retraitEffectue')->name('retrait.confirm')->middleware('agent');
+    Route::get('agent/retrait', 'RetraitController@retrait')->name('retrait')->middleware('agent');
+});
+
+
+Route::group(['namespace' => 'Agent'], function () {
+    Route::get('agent', 'AgentController@index')->name('agent')->middleware('agent');
+    Route::post('agent/ajout', 'AgentController@ajout')->name('ajout')->middleware('agent');
+    Route::post('agent/retirais', 'AgentController@retirais')->name('retirais')->middleware('agent');
+});
+
+//les route BCM
+Route::group(['namespace' => 'Bcm'], function () {
+    Route::get('bcm', 'BcmController@index')->name('bcm')->middleware('bcm');
+
+});
+
+/*Route::get('agent', function () {
     return view('agent.Agent');
-})->middleware('agent');
+})->name('agent')->middleware('agent');*/
 Route::get('/home', 'HomeController@index')->name('home');
 //Auth::routes();
+
+//la carte
+Route::group(['namespace' => 'Admin'], function () {
+    Route::match(['get', 'head'], 'admin/carte', 'PTransfertController@carte')->name('carte.index')->middleware('admin');
+
+});
+//fin

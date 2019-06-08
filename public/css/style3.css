@@ -1,37 +1,96 @@
+ 
 .r{
 
   background: #f7f7f7;
   box-shadow: 3px 0 8px rgba(0, 0, 0, 0.26);
   position: fixed;
   width: 100%;
+  border-bottom:3px solid black;
 }
 
 
 [class*='col-']{
-  
-  
+
+position: static;
   margin: 0px;
   padding: 0px;
 }
 
 
 .titre h1{
-  text-align: center;
+  text-align: right;
   font-family: bold;
-  font-size: 4vw;
-  font-family:impact;
+  /*font-size: 4vw;*/
+  font-family:'Ubuntu Condensed', sans-serif;
   color:white;     /*;   #DFF0D8;   #04A3ED;  #424558;  #D6E9C6;  #B94A48;  #F2DEDE;  #EED3D7;*/
   text-shadow: 1px 3px 7px  black;
   text-transform: uppercase;
-  margin-top: 40px;
+  margin-top: 10px;
 
 }
 
-.logo{  
-  height: 170px;
-  width: 170px;
-  
+.logo{
+  height: 100px;
+  width: 100px;
+  margin-top: -10px;
 
+
+}
+.as{
+  background-image: -moz-linear-gradient(70deg, LightGray 0%, SlateBlue 100%);
+  background-image: -webkit-linear-gradient(70deg, LightGray 0%, SlateBlue 100%);
+  background-image: -ms-linear-gradient(70deg, LightGray 0%, SlateBlue 100%);
+  width: 67.3%;
+  float: right;
+  height: 80px;
+  border:3px solid LightGray;
+  border-radius:40px;
+  margin-top: 10px;
+}
+.profile{
+  background-image: -moz-linear-gradient(70deg, LightGray 30%, #f7f7f7 70%);
+  background-image: -webkit-linear-gradient(70deg, LightGray 30%, #f7f7f7 70%);
+  background-image: -ms-linear-gradient(70deg, LightGray 30%, #f7f7f7 70%);
+  padding: 0em 4em;
+  width: 30em;
+  border-radius: 0% 0% 55% 0%;
+
+}
+
+
+.profile img{
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  border:2px solid rgb(68,84,106);
+ margin-left: 90px;
+
+
+}
+.bmenu{
+  background-image: -moz-linear-gradient(50deg, SlateBlue 0%, white 100%);
+  background-image: -webkit-linear-gradient(50deg, SlateBlue 0%, white 100%);
+  background-image: -ms-linear-gradient(50deg, SlateBlue 0%, white 100%);
+  border-radius: 0% 100% 0% 0%;
+  margin-left: -56px;
+  width: 68%;
+  height: 40px;
+}
+
+.bmenu a{
+  padding: 1.5em 0em;
+  font-size: 18px;
+  color: black;
+  text-decoration:none;
+  font-family:'Ubuntu Condensed', sans-serif;
+  cursor: pointer;
+  font-weight: 700;
+}
+.bmenu a:hover{
+  color: white;
+}
+.bmenu i{
+  position: static;
 }
 
 .cicon img{
@@ -48,13 +107,13 @@
   padding: 0px;
   /*border:1px solid blue;*/
   }
- 
+
 
 .menu2  .navbar-nav > .active > a{
   background-color : #04A3ED;
   color: white;
   font-weight: bold;
-  
+
 }
 .menu2  .navbar-nav >  li{
   margin: 1px;
@@ -72,7 +131,7 @@
 }
 .menu2  .navbar-nav >  li >  a:hover{
   background-color: #04A3ED;
-  
+
 }
 
 .navbar-header > a{
@@ -81,7 +140,7 @@
   text-decoration: none;
   color: white;
   font-size: 25px;
-  
+
 }
 .navbar-header > a:hover{
  text-decoration: none;
@@ -102,113 +161,147 @@
     margin: 0;
     padding: 0;
     background: #f7f7f7;
-    z-index:10;  
+    z-index:10;
     overflow:auto;
     box-shadow: 3px 0 8px rgba(0, 0, 0, 0.26);
     transition: all 0.1s ease-in-out;
     width:0;
     text-transform: uppercase;
+    margin-top: 3px;
   }
 
-.menu-bar li a{
+.menu-bar li a,.menu-bar li .dropdown a{
   display: block;
   height: 4em;
   line-height: 6em;
   text-align:left;
   padding-left: 1.5em;
   color: black;
-  text-decoration:none;  
+  text-decoration:none;
   position: relative;
-  font-family:'Ubuntu Condensed', sans-serif;
-  text-shadow: 1px 3px 4px  black;
-  border-bottom: 3px solid rgba(0, 0, 0, 0.05);
-  
-  
-  
+  font-family:times new roman;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+
+
+ }
+
+ .dropdown-menu{
+  background-color: inherit;
+  color: black;
+  padding-left: 1.5em;
+  width: 100%;
+  font-family:times new roman;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: none;
  }
 
 .menu-bar li a:hover{
-  background: rgba(0, 0, 0, 0.26);;
+  background: black;
   color: white;
   box-shadow: 1px 0 8px skyblue;
-  border-bottom: 4px solid #04A3ED;
+  border-bottom: 4px solid #FF6347;
 
 }
-.menu-bar li:first-child a{
-    height:5em;
-    background: black;
-    color: #fff;    
-    border-bottom: 1px solid #04A3ED;
+.menu-bar li .active{
+  background: rgba(0, 0, 0, 0.26);
+  color: white;
+  box-shadow: 1px 0 8px skyblue;
+  border-bottom: 4px solid SlateBlue;
+  text-shadow: 1px 1px 1px black;
+
 }
+
 
 .open{width:15em;height:100%;}
 .open2{margin-left:15em; }
 
 
-.profile{
-  background-color: black;
-  padding: 1.5em 4em; 
-  width: 15em;
-
-}
 
 
 
-
-
-.profile img{
-  width: 90px;
-  height: 90px;
-  border-radius: 100%;
-  border:5px solid rgb(68,84,106);
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
-  -webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
-  -moz-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
-  
-}
-
-
-.bmenu a{
-  padding: 1.5em 1em; 
-  color: white;
-  text-decoration:none;  
-  font-family:'Ubuntu Condensed', sans-serif;
-  text-shadow: 1px 3px 5px  black;
-  cursor: pointer;
-}
-.bmenu i{
-  position: static;
-}
-
-.as{
-  
-  width: 67.3%;
-  float: right; 
-  height: 152px;
-
-}
 .contenu{
   margin-top: 199px;
   text-align: center;
+  position: static;
 }
-.contenu .NL{
+.contenu .NL2{
+  display: none;
+}
+.contenu .NLD{
+  display: none;
+}
+.contenu .NL,.contenu .NL22{
   display: inline-block;
-  width: 70%;
-  
+  width: 90%;
+
   padding: 10px;
 }
- 
-.contenu .NL .form-group input,.contenu .NL .form-group select{
-  border-radius: 96px; 
+.contenu .UT{
+  display: inline-block;
+  width: 80%;
+  padding: 10px;
+}
+.UTO{
+  position: static;
+  margin-top: 5px;
+}
+.UTO button {
+ /* border-bottom: 3px solid black;*/
+  margin-top: -50px;
+  border: none;
+  width: 95%;
+  height: 140px;
+  background-image: -moz-linear-gradient(90deg, black 0%, gray 100%);
+  background-image: -webkit-linear-gradient(90deg, black 0%, gray 100%);
+  background-image: -ms-linear-gradient(90deg, black 0%, gray 100%);
+  border-radius: 10px;
+  cursor: auto;
+}
+.UTO button span{
+  font-size: 35px;position: static;color: white;margin-top: 5px;text-shadow: 1px 2px 4px  black;font-weight: 700;
+}
+.UTO button i{
+  font-size: 18px;position: static;color: red;margin-top: 5px;
+}
+.UTO button h5{
+  color: white;
+  font-weight: 700;
+}
+.UTO button:hover {
+   background-color: red;
+   color: white;
+}
+.UTO button span:hover {
+   color: white;
+}
+.bselectionner button{
+   background-color: rgba(0, 0, 0, 0.35);
+}
+
+
+.bajouter{
+
+   border-radius: 10%;
+   background-color: yellow;
+   box-shadow: 3px 0 8px rgba(0, 0, 0, 0.26);
+   font-weight: bold;
+   color: black;
+   margin-top: 5px;
+}
+
+
+.contenu .NL .form-group input,.contenu .NL .form-group select,.contenu .NL2 .form-group input,.contenu .NL2 .form-group select{
+  border-radius: 96px;
   width: 230px;
-  margin-left: 25%;
-  margin-top: 20px;
+  margin-top: 3px;
+  margin-left: 10px;
   background-color: #f7f7f7;
 }
 
 .gauche{
   border-bottom: 1px solid skyblue;
-  border-right: 1px dotted black;
+  border-right: 1px dotted white;
   float: left;
   width: 50%;
    box-shadow: 3px 0 8px rgba(0, 0, 0, 0.26);
@@ -219,15 +312,30 @@
   width: 50%;
   border-left: 1px dotted black;
    box-shadow: 3px 0 8px rgba(0, 0, 0, 0.26);
-    border-bottom: 1px solid pink;
+    border-bottom: 1px solid skyblue;
     border-radius: 10px;
 }
-.gauche .form-group input{
+.gauche .form-group input,.gauche .form-group select{
 border:1px solid skyblue;
 
 }
+
+.gauche .form-group .col-md-6,.droite .form-group .col-md-6{
+  position: static;
+}
+
 .droite .form-group input,.droite .form-group select{
-border:1px solid pink;
+border:1px solid skyblue;
+
+}
+
+.gauche .form-group label,.droite .form-group label{
+  position: static;
+  margin-top: 8px;
+  margin-left: 20px;
+  color: black;
+  font-family: Times new roman;
+  font-weight: bold;
 
 }
 .creU:before{
@@ -236,60 +344,95 @@ border:1px solid pink;
  }
 
 .listtitre{
-  border-radius: 40px;
-  border:1px solid transparent;
-  background-color:#f7f7f7;
+
+  border-bottom:3px solid SlateBlue;
+  background-image: -moz-linear-gradient(90deg, black 0%, gray 100%);
+  background-image: -webkit-linear-gradient(90deg, black 0%, gray 100%);
+  background-image: -ms-linear-gradient(90deg, black 0%, gray 100%);
   box-shadow: 3px 0 8px rgba(0, 0, 0, 0.26);
-  width: 50%;
-  margin-left: 25%;
+  width: 80%;
+  margin-left: 10%;
   font-family: Times new roman;
   font-weight: bold;
   margin-bottom: 10px;
+  color: white;
 }
 .scroll{
   width: 80%;
   display: inline-block;
+  
+  margin-top: -10px;
 }
 .tbD{
   font-family: Times new roman;
-  border-top:5px solid black;
   
   font-weight: bold;
+  background-color: red;
+}
+.tbDD{
+  display: none;
+}
+.tbD thead{
+  background-color: gray;
 }
 .tbD thead th{
-  background-color: skyblue;
+  background-color: gray;
   text-align: center;
   color: white;
   text-transform: uppercase;
-  
+  text-shadow: 1px 1px 1px black;
+ 
 }
 
 .tbD td{
-  box-shadow: 5px 0 11px black;
+  box-shadow: inset 1px 0px 1px 1px lavender;
   background: #f7f7f7;
  }
- .tbD tbody tr{
-  border-bottom:5px solid white;
-  
-  
- }
-
-
  
+#myTable_filter input,#PTable_filter input{
+  border-radius: 96px;
+  width: 230px;
+  box-shadow: 1px 1px 0px 1px gray;
+  
+}
 
-@media all and (min-width: 641px) and (max-width: 943px) {
-.gauche{
+.btarifs{
+ background-color: white;
+ box-shadow: inset 2px 0px 1px 6px rgba(0, 0, 0, 0.26);
+}
+.btarifns{
+ font-size: 40px;
+ text-shadow: -3px -1px 2px black;
+ border-radius:0px 15px 15px 0px;
+ color: #3074ad;
+ cursor: pointer;
+}
+
+@media all and (min-width: 641px) and (max-width: 1159px) {
+    .gauche{
         float: none;
         width: 100%;
      }
+     .gauche .form-group input ,.droite .form-group input,.gauche .form-group select,.droite .form-group select{
+      display: inline-block;
+     }
      .droite{
       float: none;
-      border:none; 
+      border:none;
       width: 100%;
+     }
+
+}
+@media all and (min-width: 641px) and (max-width: 864px) {
+.as{
+      height: 90px;
+    }
+     .titre h1{
+      font-size: 30px;
      }
 }
 
-@media all and (max-width: 605px) {
+@media all and (max-width: 1405px) {
 
 div.scroll {
       width:100%;
@@ -297,11 +440,17 @@ div.scroll {
        overflow-y:auto;
        height: auto;
       max-height:620px;
-       
-
 }
 
 
+}
+@media all and (min-width: 864px) {
+.tcreU{
+  margin-left: 70px;
+ }
+ .btarifns{
+margin-left: 90px;
+}
 }
 
 @media all and (min-width: 480px) and (max-width: 640px) {
@@ -316,7 +465,7 @@ div.scroll {
         display:inline-block;
         float:left;
     }
-    .menu-bar li a{
+    .menu-bar li a,.menu-bar li .dropdown a{
         width:100%;
         text-align: center;
     }
@@ -331,13 +480,13 @@ div.scroll {
     }
     .open2{margin-left:0em; }
     .menu-bar{
-        
+
         font-size: 10px;
       }
       .menu li a{
         font-size: 10px;
-      } 
-      
+      }
+
        .profile{
       width: 100%;
     }
@@ -349,16 +498,20 @@ div.scroll {
     .icon-bar{
      background-color: white;
      }
-     
-     .logo{ 
-       height: 110px;
-       width: 110px;
+      .titre h1{
+      font-size: 30px;
+     }
+
+     .logo{
+       height: 85px;
+       width: 85px;
        }
      .contenu{
       margin-top: 250px;
      }
 
-     .contenu .NL{
+
+     .contenu .NL,.contenu .NL2{
       width: 100%;
      }
      .gauche{
@@ -367,11 +520,28 @@ div.scroll {
      }
      .droite{
       float: none;
-      border:none; 
+      border:none;
       width: 100%;
      }
+      .gauche .form-group input,.droite .form-group input,.gauche .form-group select,.droite .form-group select{
+      display: inline-block;
+     }
 
-   
+   .UTO{
+    margin-top: 10px;
+   }
+   .UTO1{
+    margin-left: -40px;
+  }
+  .UTO2{
+    margin-left: 18px;
+  }
+  .UTO3{
+    margin-left: 20px;
+  }
+  .dropdown-menu{
+    font-size: 8px;
+  }
 
 }
 
@@ -388,7 +558,7 @@ div.scroll {
         display:inline-block;
         float:left;
     }
-    .menu-bar li a{
+    .menu-bar li a,.menu-bar li .dropdown a{
         width:100%;
         text-align: center;
     }
@@ -404,14 +574,14 @@ div.scroll {
    .open2{margin-left:0em; }
 
     .menu-bar{
-       
+
         font-size: 10px;
         position: fixed;
       }
       .menu li a{
         font-size: 8px;
-      } 
-      
+      }
+
       .profile{
       width: 100%;
       }
@@ -425,20 +595,20 @@ div.scroll {
     .icon-bar{
      background-color: white;
      }
-     
+
      .titre h1{
       font-size: 20px;
      }
-     .logo{ 
-       height: 90px;
-       width: 90px;
+     .logo{
+       height: 80px;
+       width: 80px;
        }
 
      .contenu{
       margin-top: 250px;
      }
 
-     .contenu .NL{
+     .contenu .NL,.contenu .NL2{
       width: 100%;
      }
      .gauche{
@@ -447,10 +617,110 @@ div.scroll {
      }
      .droite{
       float: none;
-      border:none; 
+      border:none;
       width: 100%;
      }
-.contenu .NL .form-group input{
-  margin-left: 0px;
+     .gauche .form-group input,.droite .form-group input,.gauche .form-group select,.droite .form-group select{
+      display: inline-block;
      }
+
+  .UTO button {
+   height: 65px;
+   width: 65px;
+
+  }
+
+  .UTO1{
+    margin-left: -30px;
+  }
+  .UTO2{
+    margin-left: 8px;
+  }
+  .UTO3{
+    margin-left: 15px;
+  }
+  .UTO button span{
+  font-size: 15px;
+  }
+  .UTO button i{
+  display: none;
+   }
+  .UTO button h5{
+
+   }
+   .dropdown-menu{
+    font-size: 8px;
+  }
+}
+/*
+*cadre admin
+*/
+
+.order-card {
+    color: #fff;
+}
+
+.bg-c-blue {
+    background: linear-gradient(45deg, #4099ff, #73b4ff);
+}
+
+.bg-c-green {
+    background: linear-gradient(45deg, #2ed8b6, #59e0c5);
+}
+
+.bg-c-yellow {
+    background: linear-gradient(45deg, #FFB64D, #ffcb80);
+}
+
+.bg-c-pink {
+    background: linear-gradient(45deg, #FF5370, #ff869a);
+}
+
+
+.card {
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4, 26, 55, 0.16);
+    box-shadow: 0 1px 2.94px 0.06px rgba(4, 26, 55, 0.16);
+    border: none;
+    margin-bottom: 30px;
+    margin-top: 1px;
+    margin-left: 15px;
+    margin-right: 15px;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    height: 200px;
+}
+
+.card .card-block {
+    padding: 20px;
+}
+
+.order-card i {
+    font-size: 26px;
+}
+
+.f-left {
+    float: left;
+}
+
+.f-right {
+    float: right;
+}
+.tx{
+  font-size: 25px;
+}
+
+.PMact{
+  margin-left: 90px;
+}
+.PMact2{
+  display: none;
+}
+@media all and (max-width: 767px) {
+.PMact{
+  display: none;
+}
+.PMact2{
+  display: block;
+}
 }

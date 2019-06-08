@@ -15,7 +15,7 @@ class CreateTarifPourcentagesTable extends Migration
     {
         Schema::create('tarif_Pourcentages', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->decimal('pourcentage', 4, 2);
+            $table->decimal('pourcentage', 3, 2);
             $table->dateTime('date_debut');
             $table->dateTime('date_fin')->nullable();
             $table->bigInteger('cree_par');

@@ -16,7 +16,7 @@ class TarifPourcentageController extends Controller
     {
         $pourcentage = Tarif_pourcentage::where('date_fin', '=', null)->get();
         $params = [
-            'title' => 'Liste des tarif',
+            'title' => 'Pourcentage',
             'pourcentages' => $pourcentage,
         ];
         return view('admin.config.tarif.pourcentage.listTarif')->with($params);

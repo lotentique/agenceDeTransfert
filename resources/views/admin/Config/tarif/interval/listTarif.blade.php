@@ -1,7 +1,7 @@
 @extends('layouts.base')
 @section('content')
 <div class="listtitre">
-    <h3><span class="creU"></span>{{ $title }} <a href="{{ route('tarifInterval.create') }}" class="btn btn-primary btn-xs"><i class="fa fa-plus"></i> Ajouter </a></h3>
+    <h3>{{ $title }} <a href="{{ route('tarifInterval.create') }}" class="btn bajouter"><i class="fa fa-plus"></i> Ajouter </a></h3>
 </div>
 <div class="scroll">
     <table id="datatable-buttons" class="table table-striped table-bordered tbD">
@@ -23,9 +23,15 @@
                 <td>{{$row->tarif}}</td>
                 <td>{{$row->date_debut}}</td>
 
+                 @if($row->min==$row->max)
+                <td>
+                    <a disabled="disabled" href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil" title="Edit"></i> </a>
+                </td>
+                @else
                 <td>
                     <a href="{{ route('tarifInterval.edit', ['id' => $row->id]) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil" title="Edit"></i> </a>
                 </td>
+                @endif
             </tr>
             @endforeach
             @endif

@@ -1,9 +1,9 @@
 @extends('layouts.base')
 @section('content')
 <div class="listtitre">
-    <h3><span class="creU"></span>
+    <h3>
         {{ $title }}@if (! count($pourcentages))
-        <a href="{{ route('tarifPourcentage.create') }}" class="btn btn-primary btn-xs"><i class="fa fa-plus"></i> Ajouter </a>
+        <a href="{{ route('tarifPourcentage.create') }}" class="btn bajouter"><i class="fa fa-plus"></i> Ajouter </a>
         @endif
     </h3>
 </div>

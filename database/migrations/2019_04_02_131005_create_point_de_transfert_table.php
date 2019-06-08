@@ -18,6 +18,7 @@ class CreatePointDeTransfertTable extends Migration
             $table->string('cartier');
             $table->bigInteger('id_ville');
             $table->string('nom');
+            $table->decimal('caisse', 19, 2);
             $table->foreign('id_ville')->references('id_ville')->on('villes');
             $table->timestamps();
         });
