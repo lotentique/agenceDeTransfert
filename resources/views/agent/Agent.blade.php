@@ -30,7 +30,7 @@
 					</div><br>
 					<div class="text">
 						<h2>{{ $nbrtrans }}</h2>
-						<span>Transfer</span>
+						<span>Transfert</span>
 					</div>
 				</div>
 			</div>
@@ -45,7 +45,7 @@
 					</div><br>
 					<div class="text">
 						<h2>{{ $nbrretrais }}</h2>
-						<span>Retrais</span>
+						<span>Retrait</span>
 					</div>
 				</div>
 			</div>
@@ -61,7 +61,7 @@
 					</div><br>
 					<div class="text">
 						<p style="color:white; font-weight: 700; font-size: 19px;">{{$somme}} UM</p>
-						<span>transfert recus</span>
+						<span>transfert reçu</span>
 					</div>
 				</div>
 			</div>

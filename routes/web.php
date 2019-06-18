@@ -54,6 +54,8 @@ Route::get('/', function () {
 
 //Les routes pour changer le nom et le logo de l'application
 Route::group(['namespace' => 'Admin'], function () {
+    Route::match(['get', 'head'], 'config', 'ConfigController@index')->name('config')->middleware('admin');
+    Route::post('config/changer plage horair', 'ConfigController@changerHeur')->name('heur')->middleware('admin');
     Route::match(['get', 'head'], 'conf', 'ChangerNLController@index')->name('ChangerNL')->middleware('admin');
     Route::post('config/changer Nom', 'ChangerNLController@changerNom')->name('changerNom')->middleware('admin');
     Route::post('config/changerL ogo', 'ChangerNLController@changerLogo')->name('changerLogo')->middleware('admin');
@@ -133,7 +135,9 @@ Route::group(['namespace' => 'Agent'], function () {
 //les route BCM
 Route::group(['namespace' => 'Bcm'], function () {
     Route::get('bcm', 'BcmController@index')->name('bcm')->middleware('bcm');
-
+    Route::get('val', 'BcmController@montant')->name('montant')->middleware('bcm');
+    Route::post('val', 'BcmController@change')->name('change')->middleware('bcm');
+    Route::get('suspect', 'BcmController@suspect')->name('suspect')->middleware('bcm');
 });
 
 /*Route::get('agent', function () {

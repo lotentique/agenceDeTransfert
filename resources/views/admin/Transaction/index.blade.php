@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="listtitre" style="width: 100%;margin-left: 0;">
-    <h3>Transactions <a href="{{ route('PTransfert.create') }}" class="btn bajouter"><i class="fa fa-plus"></i> Ajouter</a>   <a href="{{ route('listeTransfert') }}" class="btn btn-primary"><i class="fa fa-export"></i> exporter</a></h3>
+    <h3>Transactions  <a href="{{ route('listeTransfert') }}" class="btn btn-primary"><i class="fa fa-export"></i> exporter</a></h3>
 
     </div>
     <div class="scroll" style="box-shadow: 1px 0px 0px 2px gray;width: 100%;">

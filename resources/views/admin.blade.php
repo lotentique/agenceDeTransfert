@@ -6,7 +6,7 @@
             <div class="card bg-c-blue order-card" >
                 <div class="card-block">
                     <h2><i class="fa fa-arrow-down f-left"></i><i class="fa fa-money f-left"></i><span class="tx">{{ $sommeCaiss }} UM</span></h2>
-                    <h4 class="m-b-0">Somme Actuel des caisse</h4>
+                    <h4 class="m-b-0">Somme Actuelle des caisses</h4>
                 </div>
             </div>
         </div>
@@ -15,7 +15,7 @@
             <div class="card bg-c-green order-card">
                 <div class="card-block">
                     <h2><i class="fa fa-arrow-up f-left"></i><span>{{ $sommeRetrai }} UM</span></h2>
-                    <h4 class="m-b-0">Somme des retrais non effectue</h4>
+                    <h4 class="m-b-0">Somme des retraits non effectuées</h4>
                 </div>
             </div>
         </div>
@@ -33,7 +33,7 @@
             <div class="card bg-c-pink order-card">
                 <div class="card-block">
                     <h2><i class="fa fa-money f-left"></i><span>{{ $gain }} UM</span></h2>
-                    <h4 class="m-b-0">gain journalie</h4>
+                    <h4 class="m-b-0">gain journalier</h4>
                 </div>
             </div>
         </div>
@@ -46,7 +46,7 @@
         </div>
     
         <div style="width: 100%;text-align: left;">
-             <h4 >Point de transfert le plus actif <span class="PMact" >Point de transfert le plus actif</span></h4>
+             <h4 >Point de transfert le plus actif <span class="PMact" >Point de transfert le moins actif</span></h4>
 
             <div class="row">
  

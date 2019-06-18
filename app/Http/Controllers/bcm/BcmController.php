@@ -11,9 +11,13 @@ use App\models\Point_de_transfert;
 use App\Models\Transfert;
 use App\Charts\statTrans;
 use App\Models\Ville;
+use App\Models\Config;
+use Excel;
+use App\Exports\suspect;
 
 class BcmController extends Controller
 {
+   
     
    public function index(){
    	$trans= transfert::all();
@@ -54,8 +58,10 @@ class BcmController extends Controller
         $gain=Transfert::where('created_at','=',now())->sum('tarif');
         $capital=$sommeCaiss-$sommeRetrai;
         //return(now());
-        $Transfertelever = Transfert::where('montant','>=', '200000')->get();
-        $CTransfertelever = Transfert::where('montant','>=', '200000')->count();
+        $heur = Config::get();
+        $montant=$heur[0]->montant;
+        $Transfertelever = Transfert::where('montant','>=', $montant)->get();
+        $CTransfertelever = Transfert::where('montant','>=', $montant)->count();
         $CTransfert = Transfert::get()->count();
         $hasnoti='has-noti';
         $Transfert = Transfert::get();
@@ -127,8 +133,61 @@ class BcmController extends Controller
             'CTransfertelever' => $CTransfertelever,
             'hasnoti' => $hasnoti,
             'CTransfert' => $CTransfert,
+            'montant'=>$montant,
         ];
         return view('bcm.bcm',compact('benefice','stats','statsPA','statsPMA','sommeCaiss','sommeRetrai','capital','gain'))->with($params);
        
    }
+    public function montant(){
+
+         $heur = Config::get();
+        $montant=$heur[0]->montant;
+
+        $params = [
+            'Transfert' => [],
+            'villes' => [''],
+            'users' => [''],
+            'Ptransfert' => [''],
+            'Transfertelever' => [],
+            'CTransfertelever' => [''],
+            'hasnoti' => [''],
+            'CTransfert' => [''],
+            'montant'=>$montant,
+        ];
+
+        return view('bcm.bcm',compact('benefice','stats','statsPA','statsPMA','sommeCaiss','sommeRetrai','capital','gain'))->with($params);
+    }
+
+    public function change(Request $request){
+
+
+
+
+        
+         $heur = Config::get();
+         //return($request->montant);
+        $heur[0]->update([
+            'montant' => $request->montant,
+        ]);
+        $heur = Config::get();
+        $montant=$heur[0]->montant;
+
+        $params = [
+            'Transfert' => [],
+            'villes' => [''],
+            'users' => [''],
+            'Ptransfert' => [''],
+            'Transfertelever' => [],
+            'CTransfertelever' => '',
+            'hasnoti' => [''],
+            'CTransfert' => 0,
+            'montant'=>$montant,
+        ];
+
+         return back()->with($params);
+    }
+     public function suspect(){
+        return Excel::download(new suspect, 'suspect.xlsx');
+
+    }
 }

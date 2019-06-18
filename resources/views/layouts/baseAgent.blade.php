@@ -64,13 +64,13 @@
               </li>
               <li class="has-sub">
                 <a class="js-arrow" href="#">
-                    <i class="fas fa-exchange-alt"></i>Transferts</a>
+                    <i class="fas fa-exchange-alt"></i>Transfert</a>
                 <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                   <li>
                       <a href="{{ route('saisie') }}">Effectuer un transfer</a>
                   </li>
                   <li>
-                      <a href="#" data-toggle="modal" data-target="#retrais">Retrais</a>
+                      <a href="#" data-toggle="modal" data-target="#retrais">Retrait</a>
                   </li> 
                 </ul>
               </li>
@@ -82,7 +82,7 @@
                               <a href="#" data-toggle="modal" data-target="#ajout">Ajout</a>
                           </li>
                           <li>
-                              <a href="#" data-toggle="modal" data-target="#retirais">Retirais</a>
+                              <a href="#" data-toggle="modal" data-target="#retirais">Retrait</a>
                           </li>
                     </ul>
                 </li>
@@ -109,13 +109,13 @@
                   </li>
                   <li class="active has-sub">
                       <a dusk="trans" class="js-arrow" href="#">
-                          <i class="fas fa-exchange-alt"></i>Transferts</a>
+                          <i class="fas fa-exchange-alt"></i>Transfert</a>
                       <ul class="list-unstyled navbar__sub-list js-sub-list">
                           <li>
-                              <a href="{{ route('saisie') }}">Effectuer un transfer</a>
+                              <a href="{{ route('saisie') }}">Effectuer un transfert</a>
                           </li>
                           <li>
-                              <a dusk="retrais" href="#" data-toggle="modal" data-target="#retrais">Retrais</a>
+                              <a dusk="retrais" href="#" data-toggle="modal" data-target="#retrais">Retrait</a>
                           </li>
                       </ul>
                   </li>
@@ -128,7 +128,7 @@
                               <a dusk="ajt" href="#" data-toggle="modal" data-target="#ajout">Ajout</a>
                           </li>
                           <li>
-                              <a dusk="rtr" href="#" data-toggle="modal" data-target="#retirais">Retirais</a>
+                              <a dusk="rtr" href="#" data-toggle="modal" data-target="#retirais">Retrait</a>
                           </li>
                       </ul>
                   </li>
@@ -288,14 +288,7 @@
                                                 <span class="email">{{ Auth::user()->email }}</span>
                                             </div>
                                         </div>
-                                        <div class="account-dropdown__body">
-                                            
-                                            <div class="account-dropdown__item">
-                                                <a href="#">
-                                                    <i class="zmdi zmdi-settings"></i>Setting</a>
-                                            </div>
-                                           
-                                        </div>
+                                        
                                         <div class="account-dropdown__footer">
                                             <a href="{{ route('logout') }}">
                                                 <i class="zmdi zmdi-power"></i>Deconnexion</a>
@@ -387,7 +380,7 @@
             <div class="modal-dialog modal-sm" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="smallmodalLabel">Retirais</h5>
+                        <h5 class="modal-title" id="smallmodalLabel">Retrait</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

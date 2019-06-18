@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use Validator;
 use Mail;
+use App\Mail\TestEmail;
 use App\Models\Beneficiaire;
 use App\Models\Expediteur;
 use App\Models\Parametre_applique;
@@ -164,7 +165,7 @@ class TransfertController extends Controller
             'prenom_expediteur' => 'required|alpha_dash',
             'tel_expediteur' => 'required|digits:8',
             'nni_expediteur' => 'required|digits:10',
- 
+
             'nom_beneficiaire' => 'required|alpha_dash',
             'prenom_beneficiaire' => 'required|alpha_dash',
             'tel_beneficiaire' => 'required|digits:8',
@@ -287,15 +288,10 @@ class TransfertController extends Controller
         $parems = [
             'code' => $code
         ];
+        $data = ['message' => 'This is a test!'];
+
+    //Mail::to('demsscahs@gmail.com')->send(new TestEmail($data));
         return view('agent.code')->with($parems);
     }
-    public function st(Request $request)
-    {
-    $data=[1,2];
-        Mail::send('emails.welcome', $data, function($message)
-        {
-             $message->to('demsscash@gmail.com', 'John Smith')->subject('Welcome!');
-        });
 
-    }
 }

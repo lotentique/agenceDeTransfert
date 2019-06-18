@@ -65,30 +65,18 @@
                         <li>
                             <a href="#" class="Trans">
                                 <i class="fas fa-exchange-alt"></i>Transactions</a>
-                                @if (count($Transfert))
-                                <span class="inbox-num">{{$CTransfert}}</span>
-                                @endif
+                               
                         </li>
                         <li>
                             <a href="#" class="Stat">
                                 <i class="fas fa-chart-bar"></i>Statistiques</a>
                             <!--<span class="inbox-num">100</span>-->
                         </li>
-                        
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-envelope"></i>Messagerie
-                                <span class="arrow">
-                                    <i class="fas fa-angle-down"></i>
-                                </span>
-                            </a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                
-                                <li>
-                                    <a href="map.html">
-                                        <i class="fas fa-map-marker-alt"></i>..</a>
-                                </li>
-                            </ul>
+
+                        <li>
+                            <a href="#" class="mt" >
+                                <i class="fas fa-chart-bar"></i>montant</a>
+                            <!--<span class="inbox-num">100</span>-->
                         </li>
                         
                         
@@ -114,17 +102,7 @@
                                  <h4 style="margin-left: 10px;color: white;font-family: times new roman;text-shadow: 1px 1px 1px black;float: right;">{{ Auth::user()->email }}<br> <a style="text-shadow: none;color: black;" href="{{ route('logout') }}">Deconnexion</a></h4>
                             </div>
                             <div class="header-button2">
-                                <div class="header-button-item js-item-menu">
-                                    <i class="zmdi zmdi-search"></i>
-                                    <div class="search-dropdown js-dropdown">
-                                        <form action="">
-                                            <input class="au-input au-input--full au-input--h65" type="text" placeholder="Search for datas &amp; reports..." />
-                                            <span class="search-dropdown__icon">
-                                                <i class="zmdi zmdi-search"></i>
-                                            </span>
-                                        </form>
-                                    </div>
-                                </div>
+                                
                                 @if (count($Transfertelever))
                                  
                                 <div class="header-button-item {{$hasnoti}} js-item-menu " >
@@ -134,7 +112,7 @@
                                             <p>Vous avez {{$CTransfertelever}} Notifications</p>
                                         </div>
                                         @foreach($Transfertelever as $row)
-                                        <div class="notifi__item">
+                                        <div class="notifi__item" id="{{$row->id}}">
                                             <div class="bg-c1 img-cir img-40">
                                                 <i class="zmdi zmdi-assignment-alert" style="background-color: red;"></i>
                                             </div>
@@ -206,32 +184,21 @@
                         <li>
                             <a href="#" class="Trans">
                                 <i class="fas fa-exchange-alt"></i>Transactions</a>
-                                @if (count($Transfert))
-                                <span class="inbox-num">{{$CTransfert}}</span>
-                                @endif
+                                
                         </li>
                         <li>
                             <a href="#" class="Stat">
                                 <i class="fas fa-chart-bar"></i>Statistiques</a>
                             <!--<span class="inbox-num">100</span>-->
                         </li>
-                        
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-envelope"></i>Messagerie
-                                <span class="arrow">
-                                    <i class="fas fa-angle-down"></i>
-                                </span>
-                            </a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                
-                                <li>
-                                    <a href="map.html">
-                                        <i class="fas fa-map-marker-alt"></i>..</a>
-                                </li>
-                            </ul>
+
+                        <li>
+                            <a href="#" class="mt">
+                                <i class="fas fa-chart-bar"></i>montant</a>
+                            <!--<span class="inbox-num">100</span>-->
                         </li>
                         
+
                         
                     </ul>
                     </nav>
@@ -285,11 +252,36 @@
         $('.Trans').click(function(){
           $('.Status').hide();
           $('.scroll').show();
+          $('.mont').hide();
+          $('.a').show();
         });
         $('.Stat').click(function(){
           $('.scroll').hide();
+          $('.mont').hide();
           $('.Status').show();
+          $('.a').hide();
          
+        });
+        $('.mt').click(function(){
+          $('.scroll').hide();
+          $('.Status').hide();
+          $('.mont').show();
+          $('.a').hide();
+         
+        });
+        $('.notifi__item').click(function(){
+            var id=$(this).attr("id");
+             $('#'+id+'1').addClass('cliquer');
+            $('#'+id+'2').addClass('cliquer');
+            $('#'+id+'3').addClass('cliquer');
+            $('#'+id+'4').addClass('cliquer');
+            $('#'+id+'5').addClass('cliquer');
+            $('#'+id+'6').addClass('cliquer');
+            $('#'+id+'7').addClass('cliquer');
+            $('#'+id+'8').addClass('cliquer');
+            $('#'+id+'9').addClass('cliquer');
+           $('.header-button-item').removeClass('has-noti');
+
         });
      </script>
 </body>

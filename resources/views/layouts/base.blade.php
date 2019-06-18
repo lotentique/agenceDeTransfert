@@ -28,7 +28,7 @@
         </div>
         <div class="col-xs-4">
           <div class="logo">
-            <img src="{{asset('img/logo.png')}}" class="img-responsive">
+            <img src="{{asset('img/logo.PNG')}}" class="img-responsive">
           </div>
         </div>
       </div>
@@ -46,23 +46,24 @@
         <li><a href="{{ route('admin')}}" class="{{ request()->is('admin') ? 'active' : '' }}"><span class="glyphicon glyphicon-home" ></span> ACCUEIL</a></li>
         <li><a href="{{ route('Utilisateurs.index')}}" class="{{ request()->is('Utilisateurs') ? 'active' : '' }}"><span class="glyphicon glyphicon-user"></span>Utilisateurs</a>
         <li><a href="{{ route('PTransfert.index')}}" class="{{ request()->is('admin/PTransfert') ||request()->is('admin/PTransfert/*') ? 'active' : '' }}"><span class="glyphicon glyphicon-equalizer"></span> Points de transfert</a></li>
-        <li><a href="{{ route('admin.edit', ['id' => auth()->user()->id ]) }}" class="{{ request()->is('admin/admin/*/edit') ? 'active' : '' }}"><span class="glyphicon glyphicon-pencil"></span> Mon profile</a></li>
+        <li><a href="{{ route('admin.edit', ['id' => auth()->user()->id ]) }}" class="{{ request()->is('admin/admin/*/edit') ? 'active' : '' }}"><span class="glyphicon glyphicon-pencil"></span> Mon profil</a></li>
 
 
         <li><a href="{{ route('Transaction.index')}}" class="{{ request()->is('admin/Transaction') ? 'active' : '' }}"><span class="glyphicon glyphicon-transfer"></span> transactions</a></li>
 
-        <!--<li><a href="{{ route('ChangerNL')}}" class="{{ request()->is('conf') ? 'active' : '' }}"><span class="glyphicon glyphicon-cog"></span> configuration</a></li>
+        <!--<li><a href="{{ route('ChangerNL')}}" class="{{ request()->is('conf') ? 'active' : '' }}"><span class="glyphicon glyphicon-cog"></span> configurations</a></li>
         <li><a href="{{ route('carte.index')}}" class="{{ request()->is('admin/carte') ? 'active' : '' }}"><span class="glyphicon glyphicon-cog"></span> Carte</a></li>-->
          <li>
           <div class="dropdown show">
            <a dusk="config" class=" dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="glyphicon glyphicon-cog"></span> configuration <span class="caret"></span></a>
+              <span class="glyphicon glyphicon-cog"></span> configurations <span class="caret"></span></a>
             </a>
 
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="{{ route('tarification') }}">Tarification</a>
+              <a class="dropdown-item" href="{{ route('config') }}">plage horaire</a>
               <a dusk="nom" class="dropdown-item" href="#" data-toggle="modal" data-target="#ChangerNom" data-original-title>Changer Le Nom</a>
               <a dusk="logo" class="dropdown-item" href="#" data-toggle="modal" data-target="#ChangerLogo" data-original-title>Changer Le Logo</a>
+              <a class="dropdown-item" href="{{ route('tarification') }}">Tarification</a>
             </div>
           </div>
          </li>

@@ -18,10 +18,14 @@ class ChangerNLController extends Controller
 
 	public function changerNom(Request $request)
 	{
+		
 		$NouveauN = $request->get('NouveauN');
+		
 		$AncienN = $request->get('AncienN');
+        
 		$path_to_file = '../.env';
 		$file_contents = file_get_contents($path_to_file);
+		//return $file_contents;
 		$file_contents = str_replace("APP_NAME=\"$AncienN\"", "APP_NAME=\"$NouveauN\"", $file_contents);
 		file_put_contents($path_to_file, $file_contents);
 		return back();

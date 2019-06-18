@@ -16,7 +16,10 @@ class agent
      */
     public function handle($request, Closure $next)
     {
-        if (auth()->check()) {
+
+
+
+        if (auth()->check() ) {
             if (Auth::user()->type_user != "agent" ) {
                 //abort(403, 'Unauthorized action.');
                 return back();
